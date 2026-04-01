@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги наркологической помощи — Вывод из запоя, Кодирование, Реабилитация | ТыСпас</title>
+    <meta name="description" content="Полный спектр наркологических услуг: вывод из запоя, кодирование, реабилитация, психотерапия. Анонимно. Лицензированные партнёры. Выезд на дом 24/7.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP BAR */
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+
+        /* HEADER */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        
+        /* NAVIGATION */
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu > ul > li > a .arrow { display: inline-block; margin-left: 4px; font-size: 9px; transition: 0.3s; }
+        .nav-menu > ul > li:hover > a .arrow { transform: rotate(180deg); }
+        
+        .nav-menu .dropdown {
+            position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover);
+            border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s; z-index: 1000;
+            border-top: 3px solid var(--primary); max-height: 80vh; overflow-y: auto;
+        }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown li:last-child { border-bottom: none; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; transition: 0.2s; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); padding-left: 22px; }
+
+        .nav-menu .dropdown .has-submenu { position: relative; }
+        .nav-menu .dropdown .submenu {
+            position: absolute; left: 100%; top: 0; background: var(--white);
+            box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 240px;
+            opacity: 0; visibility: hidden; transform: translateX(10px); transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        .nav-menu .dropdown .has-submenu:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .nav-menu .dropdown .submenu-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 12px;
+            background: var(--bg); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .nav-menu .dropdown.mega-menu { min-width: 550px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .nav-menu .dropdown.mega-menu .column { padding: 10px 0; }
+        .nav-menu .dropdown.mega-menu .column-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 14px;
+            background: var(--bg); margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-menu .dropdown.mega-menu .view-all {
+            padding: 12px 18px; color: var(--primary); font-weight: 600; font-size: 13px;
+            background: #eff6ff; text-align: center;
+        }
+        .nav-menu .dropdown.mega-menu .view-all:hover { background: #dbeafe; }
+
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); transition: 0.3s; }
+        .phone:hover { color: var(--primary-dark); }
+        .work-time { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .pulse { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary); padding: 10px; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        .mobile-menu-overlay.active { display: block; }
+
+        /* BUTTONS */
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--white); color: var(--primary); font-weight: 800; }
+        .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #d97706; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+        /* HERO */
+        .page-hero { background: var(--gradient-1); color: var(--white); padding: 70px 0; text-align: center; }
+        .page-hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 20px; }
+        .page-hero p { font-size: 18px; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+
+        /* BREADCRUMBS */
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+
+        /* CONTENT */
+        .content-section { padding: 80px 0; background: var(--white); }
+        .content-section.alt { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        
+        .text-content { max-width: 1000px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content h4 { font-size: 20px; font-weight: 600; margin: 30px 0 15px; color: var(--primary); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .info-box { background: #dbeafe; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 25px 0; }
+
+        /* SERVICE CATEGORIES */
+        .service-categories { padding: 80px 0; background: var(--bg); }
+        .category-block { margin-bottom: 60px; }
+        .category-title { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 30px; display: flex; align-items: center; gap: 12px; }
+        .category-icon { width: 50px; height: 50px; background: var(--gradient-1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        .service-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); transition: 0.3s; border-left: 4px solid var(--primary); }
+        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-left-color: var(--accent); }
+        .service-card h4 { font-size: 19px; margin-bottom: 12px; color: var(--text); }
+        .service-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        .service-card .price { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
+        .service-card .btn { width: 100%; justify-content: center; }
+
+        /* CTA */
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* FOOTER */
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        .footer-license { margin-top: 15px; font-size: 12px; color: #4b5563; }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; overflow-y: auto; }
+            .nav-menu.active { display: block; }
+            .nav-menu > ul { flex-direction: column; padding: 20px; }
+            .nav-menu > ul > li { border-bottom: 1px solid #e5e7eb; }
+            .nav-menu > ul > li > a { padding: 15px 0; font-size: 15px; }
+            .nav-menu .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; min-width: 100%; padding-left: 15px; display: none; }
+            .nav-menu > ul > li:hover .dropdown { display: block; }
+            .nav-menu .dropdown.mega-menu { grid-template-columns: 1fr; min-width: 100%; }
+            .header-contacts { display: none; }
+            .page-hero h1 { font-size: 32px; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 35px; height: 35px; font-size: 18px; }
+            .page-hero { padding: 50px 0; }
+            .page-hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Москва, МО и Ярославская область</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li>
+                            <a href="/uslugi/">Услуги <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li class="submenu-title">⚡ Экстренная помощь</li>
+                                <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                                <li><a href="/uslugi/narkolog-na-dom.html">Нарколог на дом</a></li>
+                                <li><a href="/uslugi/kapelitsa.html">Капельница от запоя</a></li>
+                                <li><a href="/uslugi/snyatie-lomki.html">Снятие ломки</a></li>
+                                <li><a href="/uslugi/detoksikatsiya.html">Детоксикация</a></li>
+                                <li><a href="/uslugi/skoraya-pomoshch.html">Скорая помощь</a></li>
+                                <li class="submenu-title">🛡️ Кодирование</li>
+                                <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                                <li><a href="/uslugi/bystroe-kodirovanie.html">Быстрое кодирование</a></li>
+                                <li><a href="/uslugi/anonimno.html">Анонимное лечение</a></li>
+                                <li class="submenu-title">🏥 Стационар</li>
+                                <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                                <li><a href="/uslugi/gospitalizatsiya.html">Госпитализация</a></li>
+                                <li class="submenu-title">🔄 Реабилитация</li>
+                                <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                                <li><a href="/uslugi/psihologicheskaya-pomoshch.html">Психологическая помощь</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/goroda/">Города <span class="arrow">▼</span></a>
+                            <ul class="dropdown mega-menu">
+                                <li class="column">
+                                    <div class="column-title">📍 Московская область</div>
+                                    <a href="/goroda/moskva/balashiha.html">Балашиха</a>
+                                    <a href="/goroda/moskva/khimki.html">Химки</a>
+                                    <a href="/goroda/moskva/podolsk.html">Подольск</a>
+                                    <a href="/goroda/moskva/korolev.html">Королёв</a>
+                                    <a href="/goroda/moskva/mytishchi.html">Мытищи</a>
+                                    <a href="/goroda/vse-goroda-mo.html" class="view-all">📋 Все города МО (40) →</a>
+                                </li>
+                                <li class="column">
+                                    <div class="column-title">📍 Ярославская область</div>
+                                    <a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a>
+                                    <a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a>
+                                    <a href="/goroda/yaroslavl/pereslavl.html">Переславль-Залесский</a>
+                                    <a href="/goroda/yaroslavl/tutaev.html">Тутаев</a>
+                                    <a href="/goroda/vse-goroda-yo.html" class="view-all">📋 Все города ЯО (20) →</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/blog/">Блог <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li><a href="/blog/priznaki-zapoya.html">Признаки запоя</a></li>
+                                <li><a href="/blog/stoimost-vyvoda-iz-zapoya.html">Стоимость вывода</a></li>
+                                <li><a href="/blog/metody-kodirovaniya.html">Методы кодирования</a></li>
+                                <li><a href="/blog/vse-stati.html">📋 Все статьи →</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#pricing">Цены</a></li>
+                        <li><a href="/#text-reviews">Отзывы</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                    <div class="work-time"><span class="pulse"></span><span>24/7</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span> <span>Услуги</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Услуги наркологической помощи</h1>
+                <p>Полный спектр услуг: от экстренного вывода из запоя до комплексной реабилитации. Анонимно. Лицензированные партнёры. Выезд на дом 24/7.</p>
+                <div style="margin-top: 30px;">
+                    <a href="tel:88004448989" class="btn btn-primary btn-lg">📞 Вызвать врача</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICE CATEGORIES -->
+        <section class="service-categories">
+            <div class="container">
+                
+                <!-- Category 1: Экстренная помощь -->
+                <div class="category-block">
+                    <div class="category-title">
+                        <div class="category-icon">⚡</div>
+                        <span>Экстренная помощь</span>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Вывод из запоя</h4>
+                            <p>Экстренная детоксикация на дому с помощью капельниц. Облегчение через 30 минут.</p>
+                            <div class="price">от 990 ₽</div>
+                            <a href="/uslugi/vyvod-iz-zapoya.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Нарколог на дом</h4>
+                            <p>Круглосуточный выезд врача на дом. Осмотр, консультация, назначение лечения.</p>
+                            <div class="price">от 990 ₽</div>
+                            <a href="/uslugi/narkolog-na-dom.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Капельница от запоя</h4>
+                            <p>Внутривенная детоксикация. Восстановление водно-солевого баланса.</p>
+                            <div class="price">от 1 050 ₽</div>
+                            <a href="/uslugi/kapelitsa.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Снятие ломки</h4>
+                            <p>Помощь при абстинентном синдроме. Снятие тревоги, тремора, бессонницы.</p>
+                            <div class="price">от 4 300 ₽</div>
+                            <a href="/uslugi/snyatie-lomki.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Детоксикация</h4>
+                            <p>Очищение организма от токсинов и продуктов распада алкоголя.</p>
+                            <div class="price">от 2 300 ₽</div>
+                            <a href="/uslugi/detoksikatsiya.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Скорая помощь</h4>
+                            <p>Экстренный выезд при передозировке, отравлении, белой горячке.</p>
+                            <div class="price">от 2 300 ₽</div>
+                            <a href="/uslugi/skoraya-pomoshch.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Кодирование -->
+                <div class="category-block">
+                    <div class="category-title">
+                        <div class="category-icon">🛡️</div>
+                        <span>Кодирование от алкоголизма</span>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Кодирование от алкоголизма</h4>
+                            <p>Медикаментозные и психотерапевтические методы. Срок от 3 месяцев до 5 лет.</p>
+                            <div class="price">от 1 050 ₽</div>
+                            <a href="/uslugi/kodirovanie.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Быстрое кодирование</h4>
+                            <p>Экспресс-методы за 1 сеанс. Без длительного лечения.</p>
+                            <div class="price">от 2 300 ₽</div>
+                            <a href="/uslugi/bystroe-kodirovanie.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Анонимное лечение</h4>
+                            <p>Полная конфиденциальность. Без постановки на учёт.</p>
+                            <div class="price">от 1 050 ₽</div>
+                            <a href="/uslugi/anonimno.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Стационар -->
+                <div class="category-block">
+                    <div class="category-title">
+                        <div class="category-icon">🏥</div>
+                        <span>Стационарное лечение</span>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Стационар на дому</h4>
+                            <p>Круглосуточное наблюдение врача в домашних условиях.</p>
+                            <div class="price">от 38 000 ₽/сутки</div>
+                            <a href="/uslugi/statsionar.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Госпитализация</h4>
+                            <p>Перевозка в клинику. Лечение в стационаре под наблюдением.</p>
+                            <div class="price">от 7 500 ₽/сутки</div>
+                            <a href="/uslugi/gospitalizatsiya.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Вытрезвление</h4>
+                            <p>Экстренное снятие опьянения. Быстрое восстановление.</p>
+                            <div class="price">от 2 300 ₽</div>
+                            <a href="/uslugi/vytrezvylenie.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Реабилитация -->
+                <div class="category-block">
+                    <div class="category-title">
+                        <div class="category-icon">🔄</div>
+                        <span>Реабилитация и поддержка</span>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <h4>Реабилитация</h4>
+                            <p>Комплексная программа в центре. Психотерапия, социальная адаптация.</p>
+                            <div class="price">от 27 000 ₽/месяц</div>
+                            <a href="/uslugi/reabilitatsiya.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Психологическая помощь</h4>
+                            <p>Индивидуальные и групповые сеансы. Работа с причинами зависимости.</p>
+                            <div class="price">от 3 000 ₽/сеанс</div>
+                            <a href="/uslugi/psihologicheskaya-pomoshch.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="service-card">
+                            <h4>Консультация нарколога</h4>
+                            <p>Бесплатная телефонная консультация. Оценка ситуации, рекомендации.</p>
+                            <div class="price">0 ₽</div>
+                            <a href="/uslugi/konsultatsiya.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEO TEXT -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Все услуги наркологической помощи в сервисе «ТыСпас»</h2>
+                    <p><strong>Сервис помощи зависимым «ТыСпас»</strong> предоставляет полный спектр наркологических услуг в Москве, Московской и Ярославской областях. Мы работаем с лицензированными партнёрскими клиниками и обеспечиваем высокий стандарт медицинской помощи.</p>
+
+                    <div class="highlight">
+                        <strong>Важно:</strong> Все услуги оказываются анонимно. Данные пациентов не передаются в государственные учреждения. Лечение проводится без постановки на учёт.
+                    </div>
+
+                    <h3>Экстренная наркологическая помощь</h3>
+                    <p>Наши партнёрские бригады работают круглосуточно и готовы выехать к пациенту в течение 30-60 минут. Экстренная помощь включает:</p>
+                    <ul>
+                        <li><strong>Вывод из запоя на дому</strong> — детоксикация с помощью капельниц, облегчение состояния с первых минут;</li>
+                        <li><strong>Снятие абстинентного синдрома</strong> — купирование симптомов ломки (тремор, тревога, бессонница);</li>
+                        <li><strong>Детоксикация организма</strong> — очищение от токсинов и продуктов распада алкоголя;</li>
+                        <li><strong>Скорая наркологическая помощь</strong> — экстренный выезд при передозировке, отравлении, белой горячке.</li>
+                    </ul>
+
+                    <h3>Кодирование от алкоголизма</h3>
+                    <p>Мы предлагаем различные методы кодирования, которые подбираются индивидуально:</p>
+                    <ul>
+                        <li><strong>Медикаментозное кодирование</strong> — препараты на основе дисульфирама или налтрексона;</li>
+                        <li><strong>Метод Довженко</strong> — психотерапевтическое кодирование без лекарств;</li>
+                        <li><strong>Гипнотическое кодирование</strong> — воздействие на подсознание;</li>
+                        <li><strong>Вшивание Эспераль</strong> — имплантация капсулы с препаратом;</li>
+                        <li><strong>Лазерное кодирование</strong> — воздействие на биоактивные точки мозга.</li>
+                    </ul>
+
+                    <h3>Стационарное лечение</h3>
+                    <p>Для пациентов с тяжёлыми формами зависимости мы предлагаем:</p>
+                    <ul>
+                        <li><strong>Стационар на дому</strong> — круглосуточное наблюдение врача в домашних условиях;</li>
+                        <li><strong>Госпитализация в клинику</strong> — лечение в стационаре под постоянным контролем;</li>
+                        <li><strong>Вытрезвление</strong> — быстрое снятие опьянения и восстановление.</li>
+                    </ul>
+
+                    <h3>Реабилитация и психотерапия</h3>
+                    <p>Для долгосрочного результата мы рекомендуем пройти комплексную реабилитацию:</p>
+                    <ul>
+                        <li><strong>Реабилитационный центр</strong> — программа восстановления от 1 до 6 месяцев;</li>
+                        <li><strong>Психотерапия</strong> — индивидуальные и групповые сеансы;</li>
+                        <li><strong>Поддержка после лечения</strong> — бесплатные консультации в течение всего срока кодирования.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Статистика:</strong> Более 85% пациентов сохраняют трезвость в течение первого года после полного курса лечения. При сочетании кодирования с реабилитацией показатель достигает 92%.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Нужна помощь в выборе услуги?</h2>
+                <p>Бесплатная консультация нарколога — поможем подобрать оптимальное лечение!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);">📞 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Бесплатно.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Москва, Московская и Ярославская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                        <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                        <li><a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/offer.html">Публичная оферта</a></li>
+                        <li><a href="/soglasie.html">Согласие на обработку данных</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

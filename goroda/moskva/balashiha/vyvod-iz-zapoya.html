@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вывод из запоя в Балашихе на дому — Выезд за 30-40 минут | ТыСпас</title>
+    <meta name="description" content="Вывод из запоя в Балашихе на дому. Выезд нарколога за 30-40 минут во все районы. Анонимно. Лицензированные партнёры. Круглосуточно 24/7.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu .dropdown { position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s; z-index: 1000; border-top: 3px solid var(--primary); }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); }
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); }
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--white); color: var(--primary); }
+        .btn-primary:hover { background: var(--accent); color: var(--white); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+        .page-hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #0ea5e9 100%); color: var(--white); padding: 60px 0; }
+        .page-hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .page-hero-content h1 { font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .page-hero-content .subtitle { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .page-hero-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .page-hero-feature { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+        .page-hero-feature-icon { width: 28px; height: 28px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .page-hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .page-hero-card { background: var(--white); border-radius: 20px; padding: 35px; box-shadow: var(--shadow-hover); color: var(--text); }
+        .page-hero-card-title { font-size: 22px; font-weight: 800; margin-bottom: 15px; color: var(--primary); }
+        .page-hero-card-price { font-size: 38px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+        .page-hero-card-price span { font-size: 14px; color: var(--text-light); font-weight: 400; }
+        .page-hero-card-list { margin-bottom: 25px; }
+        .page-hero-card-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; }
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+        .urgency-bar { background: #dc2626; color: var(--white); padding: 15px 0; text-align: center; font-weight: 700; font-size: 16px; }
+        .urgency-bar .container { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .content-section { padding: 80px 0; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        .text-content { max-width: 1000px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .warning { background: #fee2e2; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; margin: 25px 0; }
+        .pricing { padding: 80px 0; background: var(--white); }
+        .pricing-table { max-width: 1000px; margin: 0 auto; background: var(--white); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+        .pricing-header { background: var(--gradient-1); color: var(--white); padding: 25px; text-align: center; }
+        .pricing-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 20px 25px; border-bottom: 1px solid #e5e7eb; }
+        .pricing-row:last-child { border-bottom: none; }
+        .pricing-service { font-weight: 600; color: var(--text); }
+        .pricing-price { font-weight: 800; color: var(--primary); font-size: 18px; }
+        .pricing-time { color: var(--text-light); font-size: 14px; }
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        @media (max-width: 1024px) { .page-hero .container { grid-template-columns: 1fr; } .page-hero-content h1 { font-size: 32px; } }
+        @media (max-width: 768px) { .top-bar { display: none; } .logo { font-size: 20px; } .page-hero { padding: 40px 0; } .page-hero-content h1 { font-size: 26px; } }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Балашиха и городской округ</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span>
+            <a href="/goroda/">Города</a> <span>/</span>
+            <a href="/goroda/moskva/">Московская область</a> <span>/</span>
+            <a href="/goroda/moskva/balashiha.html">Балашиха</a> <span>/</span>
+            <span>Вывод из запоя</span>
+        </div>
+    </div>
+    <main>
+        <div class="urgency-bar">
+            <div class="container">
+                <span class="urgency-icon">🚨</span>
+                <span>Вывод из запоя в Балашихе — выезд за 30-40 минут!</span>
+                <a href="tel:88004448989" style="color: white; text-decoration: underline;">Вызвать нарколога</a>
+            </div>
+        </div>
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Вывод из запоя в Балашихе на дому — Выезд за 30-40 минут</h1>
+                    <p class="subtitle">Экстренный вывод из запоя в Балашихе. Выезд нарколога во все районы города за 30-40 минут. Анонимно. Лицензированные партнёры.</p>
+                    <div class="page-hero-features">
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>30-40 минут в любой район</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Все районы Балашихи</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Врачи 10+ лет</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>100% анонимность</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>24/7 без выходных</span></div>
+                    </div>
+                    <div class="page-hero-buttons">
+                        <a href="tel:88004448989" class="btn btn-primary btn-lg"><span>📞</span> Вызвать нарколога</a>
+                        <a href="#pricing" class="btn btn-secondary btn-lg">Цены</a>
+                    </div>
+                </div>
+                <div class="page-hero-card">
+                    <div class="page-hero-card-title">🚑 Вывод из запоя в Балашихе</div>
+                    <div class="page-hero-card-price">от 990 ₽ <span>/ выезд</span></div>
+                    <ul class="page-hero-card-list">
+                        <li>✅ 30-40 минут</li>
+                        <li>✅ Все районы Балашихи</li>
+                        <li>✅ Осмотр врача</li>
+                        <li>✅ Детоксикация</li>
+                        <li>✅ Анонимно</li>
+                    </ul>
+                    <a href="tel:88004448989" class="btn btn-accent" style="width: 100%; justify-content: center;">Вызвать</a>
+                </div>
+            </div>
+        </section>
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Вывод из запоя в Балашихе — Профессиональная помощь на дому</h2>
+                    <p><strong>Вывод из запоя в Балашихе</strong> — экстренная наркологическая помощь с выездом на дом во все районы города. Наша служба работает в Балашихе с 2015 года, оказывая помощь во всех микрорайонах: Центральный, Северный, Южный, Восточный, Западный.</p>
+                    <div class="highlight">
+                        <strong>Особенность Балашихи:</strong> Благодаря расположению на Горьковском шоссе, наши бригады добираются в любой район города за 30-40 минут, даже в час пик.
+                    </div>
+                    <h3>Районы выезда в Балашихе</h3>
+                    <p>Наши бригады работают во всех районах Балашихи:</p>
+                    <ul>
+                        <li><strong>Центральный район</strong> — мкр. Балашиха-1, Балашиха-2, Балашиха-3;</li>
+                        <li><strong>Северный район</strong> — мкр. Северный, Ольгино, Абрамцево;</li>
+                        <li><strong>Южный район</strong> — мкр. Южный, Заря, Строитель;</li>
+                        <li><strong>Восточный район</strong> — мкр. Восточный, Салтыковка;</li>
+                        <li><strong>Западный район</strong> — мкр. Западный, Железнодорожный.</li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Статистика по Балашихе:</strong> За 2023-2024 год мы вывели из запоя более 2 500 жителей Балашихи. 89% пациентов сохранили трезвость в течение первого года.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Цены на вывод из запоя в Балашихе</h2>
+                    <p>Без наценок за район</p>
+                </div>
+                <div class="pricing-table">
+                    <div class="pricing-header"><h3>🚑 Вывод из запоя в Балашихе</h3></div>
+                    <div class="pricing-row"><div class="pricing-service">Выезд врача</div><div class="pricing-price">от 990 ₽</div><div class="pricing-time">30-40 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Капельница стандарт</div><div class="pricing-price">от 1 050 ₽</div><div class="pricing-time">40-60 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Капельница усиленная</div><div class="pricing-price">от 2 300 ₽</div><div class="pricing-time">60-90 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Детоксикация премиум</div><div class="pricing-price">от 4 300 ₽</div><div class="pricing-time">90-120 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Стационар на дому</div><div class="pricing-price">от 38 000 ₽</div><div class="pricing-time">24 часа</div></div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="tel:88004448989" class="btn btn-primary btn-lg">Заказать вывод из запоя</a>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="container">
+                <h2>🚑 Нужен вывод из запоя в Балашихе?</h2>
+                <p>Звоните — приедем за 30-40 минут!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);"><span>📞</span> 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Все районы Балашихи.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Балашиха, Московская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
