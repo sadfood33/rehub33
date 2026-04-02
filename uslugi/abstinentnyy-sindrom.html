@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Снятие абстинентного синдрома — Помощь при ломке 24/7 | ТыСпас</title>
+    <meta name="description" content="Снятие абстинентного синдрома в Москве, МО и Ярославле. Анонимно. Помощь при ломке. Врачи со стажем от 10 лет. 24/7.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP BAR */
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+
+        /* HEADER */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        
+        /* NAVIGATION */
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu > ul > li > a .arrow { display: inline-block; margin-left: 4px; font-size: 9px; transition: 0.3s; }
+        .nav-menu > ul > li:hover > a .arrow { transform: rotate(180deg); }
+        
+        .nav-menu .dropdown {
+            position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover);
+            border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s; z-index: 1000;
+            border-top: 3px solid var(--primary); max-height: 80vh; overflow-y: auto;
+        }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown li:last-child { border-bottom: none; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; transition: 0.2s; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); padding-left: 22px; }
+
+        .nav-menu .dropdown .has-submenu { position: relative; }
+        .nav-menu .dropdown .submenu {
+            position: absolute; left: 100%; top: 0; background: var(--white);
+            box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 240px;
+            opacity: 0; visibility: hidden; transform: translateX(10px); transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        .nav-menu .dropdown .has-submenu:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .nav-menu .dropdown .submenu-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 12px;
+            background: var(--bg); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .nav-menu .dropdown.mega-menu { min-width: 550px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .nav-menu .dropdown.mega-menu .column { padding: 10px 0; }
+        .nav-menu .dropdown.mega-menu .column-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 14px;
+            background: var(--bg); margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-menu .dropdown.mega-menu .view-all {
+            padding: 12px 18px; color: var(--primary); font-weight: 600; font-size: 13px;
+            background: #eff6ff; text-align: center;
+        }
+        .nav-menu .dropdown.mega-menu .view-all:hover { background: #dbeafe; }
+
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); transition: 0.3s; }
+        .phone:hover { color: var(--primary-dark); }
+        .work-time { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .pulse { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary); padding: 10px; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        .mobile-menu-overlay.active { display: block; }
+
+        /* BUTTONS */
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--white); color: var(--primary); font-weight: 800; }
+        .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--white); }
+        .btn-secondary:hover { background: var(--primary); color: var(--white); border-color: var(--primary); transform: translateY(-3px); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #d97706; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+        /* HERO */
+        .page-hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #0ea5e9 100%); color: var(--white); padding: 60px 0; }
+        .page-hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .page-hero-content h1 { font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .page-hero-content .subtitle { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .page-hero-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .page-hero-feature { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+        .page-hero-feature-icon { width: 28px; height: 28px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .page-hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .page-hero-card { background: var(--white); border-radius: 20px; padding: 35px; box-shadow: var(--shadow-hover); color: var(--text); }
+        .page-hero-card-title { font-size: 22px; font-weight: 800; margin-bottom: 15px; color: var(--primary); }
+        .page-hero-card-price { font-size: 38px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+        .page-hero-card-price span { font-size: 14px; color: var(--text-light); font-weight: 400; }
+        .page-hero-card-list { margin-bottom: 25px; }
+        .page-hero-card-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; }
+
+        /* BREADCRUMBS */
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+
+        /* URGENCY BAR */
+        .urgency-bar { background: #dc2626; color: var(--white); padding: 15px 0; text-align: center; font-weight: 700; font-size: 16px; }
+        .urgency-bar .container { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .urgency-icon { animation: shake 2s infinite; }
+        @keyframes shake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* CONTENT */
+        .content-section { padding: 80px 0; background: var(--white); }
+        .content-section.alt { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        
+        .text-content { max-width: 1000px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content h4 { font-size: 20px; font-weight: 600; margin: 30px 0 15px; color: var(--primary); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .warning { background: #fee2e2; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; margin: 25px 0; }
+        .text-content .info-box { background: #dbeafe; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 25px 0; }
+
+        /* SYMPTOMS */
+        .symptoms { padding: 80px 0; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); }
+        .symptoms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .symptom-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border-left: 4px solid #dc2626; }
+        .symptom-card h4 { font-size: 18px; margin-bottom: 15px; color: var(--text); display: flex; align-items: center; gap: 10px; }
+        .symptom-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; }
+
+        /* TREATMENT */
+        .treatment { padding: 80px 0; background: var(--white); }
+        .treatment-steps { max-width: 900px; margin: 0 auto; }
+        .treatment-step { display: flex; gap: 30px; margin-bottom: 40px; position: relative; }
+        .treatment-step:last-child { margin-bottom: 0; }
+        .treatment-number { width: 60px; height: 60px; background: var(--gradient-1); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 900; flex-shrink: 0; box-shadow: var(--shadow); }
+        .treatment-content { background: var(--bg); padding: 25px; border-radius: 16px; flex: 1; }
+        .treatment-content h3 { font-size: 20px; margin-bottom: 10px; color: var(--text); }
+        .treatment-content p { color: var(--text-light); font-size: 15px; line-height: 1.6; }
+
+        /* PRICING */
+        .pricing { padding: 80px 0; background: var(--white); }
+        .pricing-table { max-width: 1000px; margin: 0 auto; background: var(--white); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+        .pricing-header { background: var(--gradient-1); color: var(--white); padding: 25px; text-align: center; }
+        .pricing-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 20px 25px; border-bottom: 1px solid #e5e7eb; }
+        .pricing-row:last-child { border-bottom: none; }
+        .pricing-service { font-weight: 600; color: var(--text); }
+        .pricing-price { font-weight: 800; color: var(--primary); font-size: 18px; }
+        .pricing-time { color: var(--text-light); font-size: 14px; }
+
+        /* VIDEO REVIEWS */
+        .video-section { padding: 80px 0; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .video-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+        .video-placeholder { width: 100%; height: 200px; background: var(--gradient-1); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; cursor: pointer; }
+        .video-info { padding: 20px; }
+        .video-title { font-weight: 700; margin-bottom: 8px; color: var(--text); }
+        .video-desc { font-size: 14px; color: var(--text-light); }
+
+        /* TEXT REVIEWS */
+        .text-reviews { padding: 80px 0; background: var(--bg); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .review-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border-left: 4px solid var(--success); }
+        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .review-avatar { width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 18px; }
+        .review-meta h4 { font-size: 16px; color: var(--text); margin-bottom: 3px; }
+        .review-meta span { font-size: 13px; color: var(--text-light); }
+        .review-stars { color: var(--accent); margin-bottom: 10px; }
+        .review-text { color: var(--text-light); font-size: 15px; line-height: 1.6; font-style: italic; }
+
+        /* CTA */
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* FAQ */
+        .faq { padding: 80px 0; background: var(--bg); }
+        .faq-list { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: var(--white); border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .faq-question { padding: 25px; font-weight: 700; font-size: 17px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question:hover { background: #f9fafb; }
+        .faq-answer { padding: 0 25px 25px; color: var(--text-light); line-height: 1.8; }
+
+        /* GEO */
+        .geo { padding: 60px 0; background: var(--white); }
+        .geo-tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .geo-tag { background: var(--bg); padding: 12px 24px; border-radius: 30px; font-size: 15px; color: var(--text); transition: 0.3s; border: 2px solid transparent; }
+        .geo-tag:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* FOOTER */
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        .footer-license { margin-top: 15px; font-size: 12px; color: #4b5563; }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .page-hero .container { grid-template-columns: 1fr; }
+            .page-hero-content h1 { font-size: 32px; }
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; overflow-y: auto; }
+            .nav-menu.active { display: block; }
+            .nav-menu > ul { flex-direction: column; padding: 20px; }
+            .nav-menu > ul > li { border-bottom: 1px solid #e5e7eb; }
+            .nav-menu > ul > li > a { padding: 15px 0; font-size: 15px; }
+            .nav-menu .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; min-width: 100%; padding-left: 15px; display: none; }
+            .nav-menu > ul > li:hover .dropdown { display: block; }
+            .nav-menu .dropdown.mega-menu { grid-template-columns: 1fr; min-width: 100%; }
+            .header-contacts { display: none; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+            .treatment-step { flex-direction: column; align-items: center; text-align: center; }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 35px; height: 35px; font-size: 18px; }
+            .page-hero { padding: 40px 0; }
+            .page-hero-content h1 { font-size: 26px; }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Москва, МО и Ярославская область</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li>
+                            <a href="/uslugi/">Услуги <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li class="submenu-title">⚡ Экстренная помощь</li>
+                                <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                                <li><a href="/uslugi/narkolog-na-dom.html">Нарколог на дом</a></li>
+                                <li><a href="/uslugi/kapelitsa.html">Капельница</a></li>
+                                <li class="submenu-title">🏥 Абстиненция</li>
+                                <li><a href="/uslugi/abstinentnyy-sindrom.html">Абстинентный синдром</a></li>
+                                <li class="submenu-title">🏥 Стационар</li>
+                                <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                                <li class="submenu-title">🔄 Реабилитация</li>
+                                <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                                <li class="submenu-title">🛡️ Кодирование</li>
+                                <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/goroda/">Города <span class="arrow">▼</span></a>
+                            <ul class="dropdown mega-menu">
+                                <li class="column">
+                                    <div class="column-title">📍 Московская область</div>
+                                    <a href="/goroda/moskva/balashiha.html">Балашиха</a>
+                                    <a href="/goroda/moskva/khimki.html">Химки</a>
+                                    <a href="/goroda/moskva/podolsk.html">Подольск</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города МО →</a>
+                                </li>
+                                <li class="column">
+                                    <div class="column-title">📍 Ярославская область</div>
+                                    <a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a>
+                                    <a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a>
+                                    <a href="/goroda/yaroslavl/pereslavl.html">Переславль-Залесский</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города ЯО →</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/blog/">Блог <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li><a href="/blog/priznaki-zapoya.html">Признаки запоя</a></li>
+                                <li><a href="/blog/abstinentnyy-sindrom.html">Абстинентный синдром</a></li>
+                                <li><a href="/blog/">📋 Все статьи →</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#pricing">Цены</a></li>
+                        <li><a href="/#text-reviews">Отзывы</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                    <div class="work-time"><span class="pulse"></span><span>24/7</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span>
+            <a href="/uslugi/">Услуги</a> <span>/</span>
+            <span>Абстинентный синдром</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- URGENCY BAR -->
+        <div class="urgency-bar">
+            <div class="container">
+                <span class="urgency-icon">🚨</span>
+                <span>Абстинентный синдром — срочная помощь при ломке!</span>
+                <a href="tel:88004448989" style="color: white; text-decoration: underline;">Звоните сейчас</a>
+            </div>
+        </div>
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Снятие абстинентного синдрома — Помощь при ломке 24/7</h1>
+                    <p class="subtitle">Профессиональное снятие абстинентного синдрома в Москве, Московской и Ярославской области. Анонимно. Облегчение через 30 минут. Лицензированные партнёры.</p>
+                    <div class="page-hero-features">
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Приезд за 30-60 минут</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Облегчение через 30 минут</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Врачи со стажем от 10 лет</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Полная анонимность</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Работаем во всех городах МО и ЯО</span></div>
+                    </div>
+                    <div class="page-hero-buttons">
+                        <a href="tel:88004448989" class="btn btn-primary btn-lg"><span>📞</span> Вызвать врача срочно</a>
+                        <a href="#pricing" class="btn btn-secondary btn-lg">Узнать цены</a>
+                    </div>
+                </div>
+                <div class="page-hero-card">
+                    <div class="page-hero-card-title">🏥 Снятие абстиненции</div>
+                    <div class="page-hero-card-price">от 4 300 ₽ <span>/ процедура</span></div>
+                    <ul class="page-hero-card-list">
+                        <li>✅ Выезд в течение 30-60 минут</li>
+                        <li>✅ Осмотр и консультация врача</li>
+                        <li>✅ Индивидуальный подбор препаратов</li>
+                        <li>✅ Облегчение через 30 минут</li>
+                        <li>✅ Анонимно, без постановки на учёт</li>
+                    </ul>
+                    <a href="tel:88004448989" class="btn btn-accent" style="width: 100%; justify-content: center;">Вызвать бригаду</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO TEXT BLOCK 1 -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Абстинентный синдром — профессиональное снятие ломки</h2>
+                    <p><strong>Абстинентный синдром</strong> (в народе «ломка») — это болезненное состояние, возникающее при резком прекращении употребления алкоголя или наркотических веществ после длительного употребления. Сервис помощи зависимым «ТыСпас» предоставляет услугу снятия абстинентного синдрома в Москве, Московской и Ярославской области с выездом на дом в течение 30-60 минут.</p>
+                    
+                    <div class="warning">
+                        <strong>ВНИМАНИЕ:</strong> Абстинентный синдром может быть опасен для жизни! При тяжёлых формах возможны судороги, белая горячка, инфаркт, инсульт. Не пытайтесь перетерпеть ломку самостоятельно — немедленно звоните <strong>8 800 444-89-89</strong>.
+                    </div>
+
+                    <h3>Что такое абстинентный синдром?</h3>
+                    <p>Абстинентный синдром возникает, когда организм, привыкший к постоянному присутствию алкоголя или наркотиков, внезапно лишается вещества. Нервная система, сердечно-сосудистая система и другие органы не могут нормально функционировать без вещества, что вызывает болезненные симптомы.</p>
+
+                    <h3>Причины возникновения абстиненции</h3>
+                    <p>Абстинентный синдром возникает по следующим причинам:</p>
+                    <ul>
+                        <li><strong>Физическая зависимость</strong> — организм адаптировался к веществу и требует его для нормального функционирования;</li>
+                        <li><strong>Нейрохимические изменения</strong> — нарушение баланса нейромедиаторов в мозге;</li>
+                        <li><strong>Накопление токсинов</strong> — продукты распада вещества отравляют организм;</li>
+                        <li><strong>Психологическая зависимость</strong> — навязчивое желание употребить вещество;</li>
+                        <li><strong>Длительность употребления</strong> — чем дольше употребление, тем тяжелее абстиненция.</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>Важно:</strong> Абстинентный синдром — это не просто «тяжёлое похмелье». Это медицинское состояние, требующее профессиональной помощи. Без лечения абстиненция может привести к серьёзным осложнениям и даже летальному исходу.
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Статистика:</strong> Без медицинской помощи около 15% пациентов с тяжёлым абстинентным синдромом погибают от осложнений. Своевременная медицинская помощь снижает этот риск до менее 1%.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYMPTOMS -->
+        <section class="symptoms">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Симптомы абстинентного синдрома</h2>
+                    <p>Распознайте опасное состояние по симптомам</p>
+                </div>
+                <div class="symptoms-grid">
+                    <div class="symptom-card">
+                        <h4>🫀 Сердечно-сосудистые</h4>
+                        <p>Тахикардия (пульс более 100 уд/мин), повышенное давление, боли в груди, аритмия, ощущение перебоев в работе сердца.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>🤢 Желудочно-кишечные</h4>
+                        <p>Тошнота, многократная рвота, диарея, боли в животе, отсутствие аппетита, обезвоживание.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>🧠 Неврологические</h4>
+                        <p>Тремор рук и тела, головная боль, головокружение, нарушение координации, судороги, эпилептические припадки.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>😰 Психологические</h4>
+                        <p>Тревожность, депрессия, раздражительность, панические атаки, бессонница, суицидальные мысли, навязчивое желание употребить.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>🌡️ Вегетативные</h4>
+                        <p>Потливость, озноб, повышенная температура, покраснение или бледность кожи, расширенные зрачки.</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>👁️ Тяжёлые симптомы</h4>
+                        <p>Галлюцинации, бред, спутанность сознания, белая горячка (делирий). Требуется немедленная госпитализация!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TREATMENT -->
+        <section class="treatment">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Как происходит снятие абстиненции?</h2>
+                    <p>Пошаговый процесс оказания помощи</p>
+                </div>
+                <div class="treatment-steps">
+                    <div class="treatment-step">
+                        <div class="treatment-number">1</div>
+                        <div class="treatment-content">
+                            <h3>Звонок и консультация</h3>
+                            <p>Вы звоните по номеру 8 800 444-89-89. Диспетчер уточняет симптомы, длительность употребления, наличие хронических заболеваний.</p>
+                        </div>
+                    </div>
+                    <div class="treatment-step">
+                        <div class="treatment-number">2</div>
+                        <div class="treatment-content">
+                            <h3>Выезд бригады</h3>
+                            <p>Врач выезжает по вашему адресу в течение 30-60 минут. Берёт с собой всё необходимое оборудование и препараты.</p>
+                        </div>
+                    </div>
+                    <div class="treatment-step">
+                        <div class="treatment-number">3</div>
+                        <div class="treatment-content">
+                            <h3>Осмотр и оценка</h3>
+                            <p>Врач проводит осмотр: измеряет давление, пульс, температуру, оценивает неврологический статус, собирает анамнез.</p>
+                        </div>
+                    </div>
+                    <div class="treatment-step">
+                        <div class="treatment-number">4</div>
+                        <div class="treatment-content">
+                            <h3>Медикаментозная терапия</h3>
+                            <p>Врач вводит препараты: седативные, антиаритмические, гипотензивные, противорвотные, витамины, гепатопротекторы.</p>
+                        </div>
+                    </div>
+                    <div class="treatment-step">
+                        <div class="treatment-number">5</div>
+                        <div class="treatment-content">
+                            <h3>Наблюдение и рекомендации</h3>
+                            <p>В течение 1-2 часов врач контролирует состояние, даёт рекомендации по дальнейшему лечению, выписывает препараты.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO TEXT BLOCK 2 -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Лечение абстинентного синдрома</h2>
+                    
+                    <h3>Медикаментозная терапия</h3>
+                    <p>Для снятия абстиненции используются следующие группы препаратов:</p>
+                    <ul>
+                        <li><strong>Бензодиазепины</strong> — для снятия тревожности, предотвращения судорог;</li>
+                        <li><strong>Антиаритмические средства</strong> — для нормализации сердечного ритма;</li>
+                        <li><strong>Гипотензивные препараты</strong> — для снижения давления;</li>
+                        <li><strong>Противорвотные</strong> — для купирования тошноты и рвоты;</li>
+                        <li><strong>Витамины группы B</strong> — для поддержки нервной системы;</li>
+                        <li><strong>Гепатопротекторы</strong> — для защиты печени;</li>
+                        <li><strong>Инфузионные растворы</strong> — для восстановления водно-электролитного баланса;</li>
+                        <li><strong>Обезболивающие</strong> — для снятия головной и мышечной боли.</li>
+                    </ul>
+
+                    <h3>Эффект от лечения</h3>
+                    <p>После проведения терапии пациент отмечает:</p>
+                    <ul>
+                        <li>Снижение тревожности через 30-60 минут;</li>
+                        <li>Нормализацию сердцебиения через 60-90 минут;</li>
+                        <li>Уменьшение тремора через 60-120 минут;</li>
+                        <li>Нормализацию сна через 2-4 часа;</li>
+                        <li>Улучшение общего состояния через 4-6 часов;</li>
+                        <li>Полное снятие абстиненции через 24-48 часов.</li>
+                    </ul>
+
+                    <div class="warning">
+                        <strong>Важно:</strong> При тяжёлых формах абстиненции (галлюцинации, бред, судороги) требуется немедленная госпитализация в стационар. Лечение на дому в таких случаях может быть опасно для жизни!
+                    </div>
+
+                    <h3>Профилактика повторной абстиненции</h3>
+                    <p>Для предотвращения повторного возникновения абстинентного синдрома рекомендуется:</p>
+                    <ul>
+                        <li><strong>Кодирование</strong> — создаёт барьер для употребления алкоголя;</li>
+                        <li><strong>Реабилитация</strong> — работа с причинами зависимости;</li>
+                        <li><strong>Психотерапия</strong> — обучение coping-стратегиям;</li>
+                        <li><strong>Поддержка родственников</strong> — помощь в поддержании трезвости;</li>
+                        <li><strong>Группы поддержки</strong> — общение с людьми, прошедшими через зависимость.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Рекомендация:</strong> После снятия абстиненции рекомендуется пройти кодирование в течение 3-7 дней, пока организм ещё очищен от алкоголя. Это значительно повышает шансы на долгосрочную трезвость.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Цены на снятие абстиненции</h2>
+                    <p>Прозрачные цены без скрытых доплат</p>
+                </div>
+                <div class="pricing-table">
+                    <div class="pricing-header"><h3>🏥 Снятие абстинентного синдрома</h3></div>
+                    <div class="pricing-row"><div class="pricing-service">Снятие лёгкой абстиненции</div><div class="pricing-price">от 4 300 ₽</div><div class="pricing-time">60-90 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Снятие средней абстиненции</div><div class="pricing-price">от 6 500 ₽</div><div class="pricing-time">90-120 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Снятие тяжёлой абстиненции</div><div class="pricing-price">от 9 000 ₽</div><div class="pricing-time">120-180 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Стационар на дому (сутки)</div><div class="pricing-price">от 38 000 ₽</div><div class="pricing-time">24 часа</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Госпитализация в клинику</div><div class="pricing-price">от 10 000 ₽</div><div class="pricing-time">включая перевозку</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Повторное снятие</div><div class="pricing-price">от 3 500 ₽</div><div class="pricing-time">60-90 мин</div></div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="tel:88004448989" class="btn btn-primary btn-lg">Вызвать врача</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEXT REVIEWS -->
+        <section id="text-reviews" class="text-reviews">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Отзывы пациентов</h2>
+                    <p>Реальные истории людей, которые прошли снятие абстиненции</p>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">А</div>
+                            <div class="review-meta">
+                                <h4>Алексей М., 42 года</h4>
+                                <span>Москва, снятие ломки</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Врач приехал за 40 минут, сделал укол. Уже через час стало намного легче. Спасибо!»</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">С</div>
+                            <div class="review-meta">
+                                <h4>Сергей В., 38 лет</h4>
+                                <span>Балашиха, абстиненция</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Бригада приехала быстро. Всё анонимно. Уже 3 месяца не пью после кодирования.»</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">О</div>
+                            <div class="review-meta">
+                                <h4>Ольга К., 35 лет</h4>
+                                <span>Ярославль, помощь мужу</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Спасли моего мужа от тяжёлой ломки. Врач всё объяснил. Благодарна!»</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">И</div>
+                            <div class="review-meta">
+                                <h4>Игорь П., 50 лет</h4>
+                                <span>Химки, снятие абстиненции</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Профессионально и быстро. Облегчение наступило через час. Уже год трезв.»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO REVIEWS -->
+        <section id="video-reviews" class="video-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Видео-отзывы пациентов</h2>
+                    <p>Истории людей, которые прошли снятие абстиненции</p>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <a href="#видео1" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Алексей, 42 года</div>
+                            <div class="video-desc">«Врач приехал за 40 минут. Через час легче!»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео2" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Сергей, 38 лет</div>
+                            <div class="video-desc">«Бригада приехала быстро»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео3" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Ольга, 35 лет</div>
+                            <div class="video-desc">«Спасли мужа от тяжёлой ломки»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео4" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Дмитрий, 45 лет</div>
+                            <div class="video-desc">«Профессионально и быстро»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео5" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Игорь, 50 лет</div>
+                            <div class="video-desc">«Уже год трезв»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео6" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Наталья, 40 лет</div>
+                            <div class="video-desc">«Рекомендую снятие абстиненции»</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GEO -->
+        <section class="geo">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Выезжаем во все города</h2>
+                    <p>Снятие абстиненции доступно во всех городах Московской и Ярославской области</p>
+                </div>
+                <div class="geo-tags">
+                    <a href="/goroda/moskva/balashiha.html" class="geo-tag">Балашиха</a>
+                    <a href="/goroda/moskva/khimki.html" class="geo-tag">Химки</a>
+                    <a href="/goroda/moskva/podolsk.html" class="geo-tag">Подольск</a>
+                    <a href="/goroda/moskva/korolev.html" class="geo-tag">Королёв</a>
+                    <a href="/goroda/moskva/mytishchi.html" class="geo-tag">Мытищи</a>
+                    <a href="/goroda/yaroslavl/yaroslavl.html" class="geo-tag">Ярославль</a>
+                    <a href="/goroda/yaroslavl/rybinsk.html" class="geo-tag">Рыбинск</a>
+                    <a href="/goroda/yaroslavl/pereslavl.html" class="geo-tag">Переславль-Залесский</a>
+                    <a href="/goroda/moskva/sergiev-posad.html" class="geo-tag">Сергиев Посад</a>
+                    <a href="/goroda/moskva/noginsk.html" class="geo-tag">Ногинск</a>
+                    <span style="color: var(--text-light); align-self: center; font-weight: 600;">+ ещё 50 городов</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>🚨 Нужна помощь при абстиненции?</h2>
+                <p>Не ждите ухудшения состояния — звоните прямо сейчас!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);"><span>📞</span> 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Без выходных.</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Частые вопросы</h2>
+                    <p>Ответы на важные вопросы о снятии абстиненции</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">Как быстро приедет врач?<span>▼</span></div>
+                        <div class="faq-answer">Среднее время прибытия бригады — 30-60 минут в зависимости от района и загруженности дорог. В экстренных случаях стараемся прибыть максимально быстро.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Когда наступит облегчение?<span>▼</span></div>
+                        <div class="faq-answer">Облегчение наступает через 30-60 минут после начала процедуры. Полное снятие абстиненции через 24-48 часов.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Гарантируется ли анонимность?<span>▼</span></div>
+                        <div class="faq-answer">Да, мы гарантируем 100% анонимность. Не ставим на учёт, не передаем данные третьим лицам. Врач приезжает на машине без опознавательных знаков.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Можно ли кодироваться после снятия абстиненции?<span>▼</span></div>
+                        <div class="faq-answer">Да, рекомендуется кодироваться в течение 3-7 дней после снятия абстиненции, пока организм ещё очищен от алкоголя.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Когда требуется госпитализация?<span>▼</span></div>
+                        <div class="faq-answer">При тяжёлых формах абстиненции (галлюцинации, бред, судороги, белая горячка) требуется немедленная госпитализация в стационар.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Сколько стоит снятие абстиненции?<span>▼</span></div>
+                        <div class="faq-answer">Стоимость зависит от тяжести состояния: от 4 300 ₽ за лёгкую форму до 9 000 ₽ за тяжёлую. Точную цену назовёт врач после осмотра.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Москва, Московская и Ярославская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                        <li><a href="/uslugi/abstinentnyy-sindrom.html">Абстинентный синдром</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                        <li><a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/offer.html">Публичная оферта</a></li>
+                        <li><a href="/soglasie.html">Согласие на обработку данных</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

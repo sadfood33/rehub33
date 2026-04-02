@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нарколог на дом в Ногинске — Вывод из запоя за 40-50 минут | ТыСпас</title>
+    <meta name="description" content="Наркологическая помощь в Ногинске. Выезд во все районы города за 40-50 минут. Анонимно. Лицензированные партнёры. Круглосуточно 24/7.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP BAR */
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+
+        /* HEADER */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        
+        /* NAVIGATION */
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu > ul > li > a .arrow { display: inline-block; margin-left: 4px; font-size: 9px; transition: 0.3s; }
+        .nav-menu > ul > li:hover > a .arrow { transform: rotate(180deg); }
+        
+        .nav-menu .dropdown {
+            position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover);
+            border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s; z-index: 1000;
+            border-top: 3px solid var(--primary); max-height: 80vh; overflow-y: auto;
+        }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown li:last-child { border-bottom: none; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; transition: 0.2s; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); padding-left: 22px; }
+
+        .nav-menu .dropdown .has-submenu { position: relative; }
+        .nav-menu .dropdown .submenu {
+            position: absolute; left: 100%; top: 0; background: var(--white);
+            box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 240px;
+            opacity: 0; visibility: hidden; transform: translateX(10px); transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        .nav-menu .dropdown .has-submenu:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .nav-menu .dropdown .submenu-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 12px;
+            background: var(--bg); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .nav-menu .dropdown.mega-menu { min-width: 550px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .nav-menu .dropdown.mega-menu .column { padding: 10px 0; }
+        .nav-menu .dropdown.mega-menu .column-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 14px;
+            background: var(--bg); margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-menu .dropdown.mega-menu .view-all {
+            padding: 12px 18px; color: var(--primary); font-weight: 600; font-size: 13px;
+            background: #eff6ff; text-align: center;
+        }
+        .nav-menu .dropdown.mega-menu .view-all:hover { background: #dbeafe; }
+
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); transition: 0.3s; }
+        .phone:hover { color: var(--primary-dark); }
+        .work-time { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .pulse { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary); padding: 10px; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        .mobile-menu-overlay.active { display: block; }
+
+        /* BUTTONS */
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--white); color: var(--primary); font-weight: 800; }
+        .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--white); }
+        .btn-secondary:hover { background: var(--primary); color: var(--white); border-color: var(--primary); transform: translateY(-3px); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #d97706; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+        /* HERO */
+        .page-hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #0ea5e9 100%); color: var(--white); padding: 60px 0; }
+        .page-hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .page-hero-content h1 { font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .page-hero-content .subtitle { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .page-hero-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .page-hero-feature { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+        .page-hero-feature-icon { width: 28px; height: 28px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .page-hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .page-hero-card { background: var(--white); border-radius: 20px; padding: 35px; box-shadow: var(--shadow-hover); color: var(--text); }
+        .page-hero-card-title { font-size: 22px; font-weight: 800; margin-bottom: 15px; color: var(--primary); }
+        .page-hero-card-price { font-size: 38px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+        .page-hero-card-price span { font-size: 14px; color: var(--text-light); font-weight: 400; }
+        .page-hero-card-list { margin-bottom: 25px; }
+        .page-hero-card-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; }
+
+        /* BREADCRUMBS */
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+
+        /* URGENCY BAR */
+        .urgency-bar { background: var(--info); color: var(--white); padding: 15px 0; text-align: center; font-weight: 700; font-size: 16px; }
+        .urgency-bar .container { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .urgency-icon { animation: shake 2s infinite; }
+        @keyframes shake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* CONTENT */
+        .content-section { padding: 80px 0; background: var(--white); }
+        .content-section.alt { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        
+        .text-content { max-width: 1000px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content h4 { font-size: 20px; font-weight: 600; margin: 30px 0 15px; color: var(--primary); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .warning { background: #fee2e2; padding: 20px; border-radius: 12px; border-left: 4px solid var(--info); margin: 25px 0; }
+        .text-content .info-box { background: #dbeafe; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 25px 0; }
+
+        /* DISTRICTS */
+        .districts { padding: 80px 0; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .districts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .district-card { background: var(--white); padding: 25px; border-radius: 16px; box-shadow: var(--shadow); }
+        .district-card h4 { font-size: 16px; margin-bottom: 10px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+        .district-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; }
+        .district-time { display: inline-block; background: var(--success); color: var(--white); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
+
+        /* SERVICES */
+        .services { padding: 80px 0; background: var(--white); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border-left: 4px solid var(--primary); }
+        .service-card h4 { font-size: 18px; margin-bottom: 12px; color: var(--text); }
+        .service-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        .service-card .btn { width: 100%; justify-content: center; }
+
+        /* PRICING */
+        .pricing { padding: 80px 0; background: var(--white); }
+        .pricing-table { max-width: 1000px; margin: 0 auto; background: var(--white); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+        .pricing-header { background: var(--gradient-1); color: var(--white); padding: 25px; text-align: center; }
+        .pricing-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 20px 25px; border-bottom: 1px solid #e5e7eb; }
+        .pricing-row:last-child { border-bottom: none; }
+        .pricing-service { font-weight: 600; color: var(--text); }
+        .pricing-price { font-weight: 800; color: var(--primary); font-size: 18px; }
+        .pricing-time { color: var(--text-light); font-size: 14px; }
+
+        /* VIDEO REVIEWS */
+        .video-section { padding: 80px 0; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .video-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+        .video-placeholder { width: 100%; height: 200px; background: var(--gradient-1); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; cursor: pointer; }
+        .video-info { padding: 20px; }
+        .video-title { font-weight: 700; margin-bottom: 8px; color: var(--text); }
+        .video-desc { font-size: 14px; color: var(--text-light); }
+
+        /* TEXT REVIEWS */
+        .text-reviews { padding: 80px 0; background: var(--bg); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .review-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border-left: 4px solid var(--success); }
+        .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .review-avatar { width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 18px; }
+        .review-meta h4 { font-size: 16px; color: var(--text); margin-bottom: 3px; }
+        .review-meta span { font-size: 13px; color: var(--text-light); }
+        .review-stars { color: var(--accent); margin-bottom: 10px; }
+        .review-text { color: var(--text-light); font-size: 15px; line-height: 1.6; font-style: italic; }
+
+        /* NEARBY CITIES */
+        .nearby { padding: 60px 0; background: var(--white); }
+        .nearby-tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .nearby-tag { background: var(--bg); padding: 12px 24px; border-radius: 30px; font-size: 15px; color: var(--text); transition: 0.3s; border: 2px solid transparent; }
+        .nearby-tag:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* CTA */
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* FAQ */
+        .faq { padding: 80px 0; background: var(--bg); }
+        .faq-list { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: var(--white); border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .faq-question { padding: 25px; font-weight: 700; font-size: 17px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question:hover { background: #f9fafb; }
+        .faq-answer { padding: 0 25px 25px; color: var(--text-light); line-height: 1.8; }
+
+        /* FOOTER */
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        .footer-license { margin-top: 15px; font-size: 12px; color: #4b5563; }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .page-hero .container { grid-template-columns: 1fr; }
+            .page-hero-content h1 { font-size: 32px; }
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; overflow-y: auto; }
+            .nav-menu.active { display: block; }
+            .nav-menu > ul { flex-direction: column; padding: 20px; }
+            .nav-menu > ul > li { border-bottom: 1px solid #e5e7eb; }
+            .nav-menu > ul > li > a { padding: 15px 0; font-size: 15px; }
+            .nav-menu .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; min-width: 100%; padding-left: 15px; display: none; }
+            .nav-menu > ul > li:hover .dropdown { display: block; }
+            .nav-menu .dropdown.mega-menu { grid-template-columns: 1fr; min-width: 100%; }
+            .header-contacts { display: none; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 35px; height: 35px; font-size: 18px; }
+            .page-hero { padding: 40px 0; }
+            .page-hero-content h1 { font-size: 26px; }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Москва, МО и Ярославская область</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li>
+                            <a href="/uslugi/">Услуги <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li class="submenu-title">⚡ Экстренная помощь</li>
+                                <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                                <li><a href="/uslugi/narkolog-na-dom.html">Нарколог на дом</a></li>
+                                <li><a href="/uslugi/kapelitsa.html">Капельница</a></li>
+                                <li class="submenu-title">🏥 Стационар</li>
+                                <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                                <li class="submenu-title">🔄 Реабилитация</li>
+                                <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                                <li class="submenu-title">🛡️ Кодирование</li>
+                                <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/goroda/">Города <span class="arrow">▼</span></a>
+                            <ul class="dropdown mega-menu">
+                                <li class="column">
+                                    <div class="column-title">📍 Московская область</div>
+                                    <a href="/goroda/moskva/balashiha.html">Балашиха</a>
+                                    <a href="/goroda/moskva/khimki.html">Химки</a>
+                                    <a href="/goroda/moskva/podolsk.html">Подольск</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города МО →</a>
+                                </li>
+                                <li class="column">
+                                    <div class="column-title">📍 Ярославская область</div>
+                                    <a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a>
+                                    <a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a>
+                                    <a href="/goroda/yaroslavl/pereslavl.html">Переславль-Залесский</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города ЯО →</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/blog/">Блог <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li><a href="/blog/priznaki-zapoya.html">Признаки запоя</a></li>
+                                <li><a href="/blog/metody-kodirovaniya.html">Методы кодирования</a></li>
+                                <li><a href="/blog/">📋 Все статьи →</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#pricing">Цены</a></li>
+                        <li><a href="/#text-reviews">Отзывы</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                    <div class="work-time"><span class="pulse"></span><span>24/7</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span>
+            <a href="/goroda/">Города</a> <span>/</span>
+            <a href="/goroda/moskva/">Московская область</a> <span>/</span>
+            <span>Ногинск</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- URGENCY BAR -->
+        <div class="urgency-bar">
+            <div class="container">
+                <span class="urgency-icon">🚑</span>
+                <span>Нарколог в Ногинске — выезд за 40-50 минут в любой район!</span>
+                <a href="tel:88004448989" style="color: white; text-decoration: underline;">Вызвать врача</a>
+            </div>
+        </div>
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Нарколог на дом в Ногинске — Помощь за 40-50 минут</h1>
+                    <p class="subtitle">Анонимная наркологическая помощь в Ногинске. Выезд во все 4 района города. Круглосуточно. Лицензированные партнёры.</p>
+                    <div class="page-hero-features">
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>40-50 минут в любой район</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>4 района Ногинска</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Врачи 10+ лет</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>100% анонимность</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>24/7 без выходных</span></div>
+                    </div>
+                    <div class="page-hero-buttons">
+                        <a href="tel:88004448989" class="btn btn-primary btn-lg"><span>📞</span> Вызвать врача</a>
+                        <a href="#pricing" class="btn btn-secondary btn-lg">Цены</a>
+                    </div>
+                </div>
+                <div class="page-hero-card">
+                    <div class="page-hero-card-title">🚑 Нарколог в Ногинске</div>
+                    <div class="page-hero-card-price">от 990 ₽ <span>/ выезд</span></div>
+                    <ul class="page-hero-card-list">
+                        <li>✅ 40-50 минут</li>
+                        <li>✅ Все районы города</li>
+                        <li>✅ Осмотр врача</li>
+                        <li>✅ Подбор препаратов</li>
+                        <li>✅ Анонимно</li>
+                    </ul>
+                    <a href="tel:88004448989" class="btn btn-accent" style="width: 100%; justify-content: center;">Вызвать</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO TEXT BLOCK 1 - УНИКАЛЬНЫЙ ПРО НОГИНСК -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Наркологическая помощь в Ногинске</h2>
+                    <p><strong>Ногинск</strong> — город Московской области с населением более 100 000 человек. Расположен на Горьковском шоссе в 51 км от Москвы. Известен своей промышленной историей и храмом Святого Николая. Наша служба работает во всех 4 районах города с 2015 года.</p>
+                    
+                    <div class="highlight">
+                        <strong>Особенность Ногинска:</strong> Благодаря Горьковскому шоссе и Новорязанскому шоссе, наши бригады добираются в любой район города за 40-50 минут.
+                    </div>
+
+                    <h3>Районы обслуживания</h3>
+                    <p>Наши бригады работают во всех районах Ногинска:</p>
+                    <ul>
+                        <li><strong>Центральный район</strong> — мкр. Центр, улица Советская, проспект Ленина;</li>
+                        <li><strong>Северный район</strong> — мкр. Глухово, мкр. Ямская;</li>
+                        <li><strong>Южный район</strong> — мкр. Южный, мкр. Купавна;</li>
+                        <li><strong>Западный район</strong> — мкр. Западный, мкр. Строителей.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Статистика по Ногинску:</strong> За 2023-2024 год мы оказали помощь более 1 100 жителям города. 86% пациентов сохранили трезвость в течение первого года.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISTRICTS - УНИКАЛЬНЫЕ РАЙОНЫ НОГИНСКА -->
+        <section class="districts">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Районы Ногинска — время прибытия</h2>
+                    <p>Оперативный выезд во все микрорайоны</p>
+                </div>
+                <div class="districts-grid">
+                    <div class="district-card">
+                        <h4>🏛️ Центральный район</h4>
+                        <p>мкр. Центр, улица Советская, проспект Ленина, площадь Ленина</p>
+                        <span class="district-time">40-45 минут</span>
+                    </div>
+                    <div class="district-card">
+                        <h4>🏘️ Северный район</h4>
+                        <p>мкр. Глухово, мкр. Ямская, улица Северная</p>
+                        <span class="district-time">40-50 минут</span>
+                    </div>
+                    <div class="district-card">
+                        <h4>🏘️ Южный район</h4>
+                        <p>мкр. Южный, мкр. Купавна, улица Южная</p>
+                        <span class="district-time">45-50 минут</span>
+                    </div>
+                    <div class="district-card">
+                        <h4>🏘️ Западный район</h4>
+                        <p>мкр. Западный, мкр. Строителей, улица Западная</p>
+                        <span class="district-time">45-55 минут</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Услуги в Ногинске</h2>
+                    <p>Полный спектр помощи</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h4>💉 Вывод из запоя</h4>
+                        <p>Детоксикация на дому. Приезд 40-50 минут. От 990 ₽</p>
+                        <a href="/uslugi/vyvod-iz-zapoya.html" class="btn btn-accent">Подробнее</a>
+                    </div>
+                    <div class="service-card">
+                        <h4>💉 Капельница</h4>
+                        <p>Очищение организма. Сертифицированные препараты. От 1 050 ₽</p>
+                        <a href="/uslugi/kapelitsa.html" class="btn btn-accent">Подробнее</a>
+                    </div>
+                    <div class="service-card">
+                        <h4>🛡️ Кодирование</h4>
+                        <p>Медикаментозное и психотерапевтическое. От 1 050 ₽</p>
+                        <a href="/uslugi/kodirovanie.html" class="btn btn-accent">Подробнее</a>
+                    </div>
+                    <div class="service-card">
+                        <h4>🏥 Стационар</h4>
+                        <p>Круглосуточное наблюдение. От 38 000 ₽/сутки</p>
+                        <a href="/uslugi/statsionar.html" class="btn btn-accent">Подробнее</a>
+                    </div>
+                    <div class="service-card">
+                        <h4>🚑 Госпитализация</h4>
+                        <p>Перевозка в клинику. От 7 500 ₽/сутки</p>
+                        <a href="/uslugi/gospitalizatsiya.html" class="btn btn-accent">Подробнее</a>
+                    </div>
+                    <div class="service-card">
+                        <h4>🔄 Реабилитация</h4>
+                        <p>Комплексная программа. От 27 000 ₽/месяц</p>
+                        <a href="/uslugi/reabilitatsiya.html" class="btn btn-accent">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Цены в Ногинске</h2>
+                    <p>Без наценок за район</p>
+                </div>
+                <div class="pricing-table">
+                    <div class="pricing-header"><h3>🚑 Услуги в Ногинске</h3></div>
+                    <div class="pricing-row"><div class="pricing-service">Выезд врача</div><div class="pricing-price">от 990 ₽</div><div class="pricing-time">40-50 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Капельница стандарт</div><div class="pricing-price">от 1 050 ₽</div><div class="pricing-time">40-60 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Капельница усиленная</div><div class="pricing-price">от 2 300 ₽</div><div class="pricing-time">60-90 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Детоксикация премиум</div><div class="pricing-price">от 4 300 ₽</div><div class="pricing-time">90-120 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Кодирование</div><div class="pricing-price">от 1 050 ₽</div><div class="pricing-time">30-40 мин</div></div>
+                    <div class="pricing-row"><div class="pricing-service">Стационар на дому</div><div class="pricing-price">от 38 000 ₽</div><div class="pricing-time">24 часа</div></div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="tel:88004448989" class="btn btn-primary btn-lg">Заказать</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEXT REVIEWS - УНИКАЛЬНЫЕ ОТЗЫВЫ ИЗ НОГИНСКА -->
+        <section id="text-reviews" class="text-reviews">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Отзывы жителей Ногинска</h2>
+                    <p>Реальные истории</p>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">В</div>
+                            <div class="review-meta">
+                                <h4>Владимир К., 51 год</h4>
+                                <span>мкр. Глухово</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Врач приехал за 45 минут в Глухово. Всё быстро и анонимно. Уже 18 месяцев трезв!»</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">З</div>
+                            <div class="review-meta">
+                                <h4>Зинаида П., 44 года</h4>
+                                <span>мкр. Купавна</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Вызывали для мужа в Купавну. Приехали быстро. Муж уже год не пьёт.»</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">Г</div>
+                            <div class="review-meta">
+                                <h4>Геннадий Ф., 57 лет</h4>
+                                <span>мкр. Ямская</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Думал в Ямскую далеко. Приехали за 50 минут. Спасибо!»</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">М</div>
+                            <div class="review-meta">
+                                <h4>Марина Д., 49 лет</h4>
+                                <span>мкр. Строителей</span>
+                            </div>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">«Брату помогли в Строителей. Профессионально. Рекомендую!»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEO REVIEWS -->
+        <section id="video-reviews" class="video-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Видео-отзывы</h2>
+                    <p>Истории выздоровления</p>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <a href="#видео1" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Владимир, 51 год</div>
+                            <div class="video-desc">«45 минут в Глухово»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео2" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Зинаида, 44 года</div>
+                            <div class="video-desc">«мкр. Купавна»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео3" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Геннадий, 57 лет</div>
+                            <div class="video-desc">«Ямская»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео4" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Марина, 49 лет</div>
+                            <div class="video-desc">«Строителей»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео5" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Андрей, 53 года</div>
+                            <div class="video-desc">«Быстро и анонимно»</div>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <a href="#видео6" class="video-placeholder">▶</a>
+                        <div class="video-info">
+                            <div class="video-title">Ольга, 46 лет</div>
+                            <div class="video-desc">«Профессионально»</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEARBY CITIES - УНИКАЛЬНЫЕ ДЛЯ НОГИНСКА -->
+        <section class="nearby">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ближайшие города</h2>
+                    <p>Также работаем в соседних городах</p>
+                </div>
+                <div class="nearby-tags">
+                    <a href="/goroda/moskva/elektrostal.html" class="nearby-tag">Электросталь</a>
+                    <a href="/goroda/moskva/pavlovskiy-posad.html" class="nearby-tag">Павловский Посад</a>
+                    <a href="/goroda/moskva/orekhovo-zuyevo.html" class="nearby-tag">Орехово-Зуево</a>
+                    <a href="/goroda/moskva/shchelkovo.html" class="nearby-tag">Щёлково</a>
+                    <a href="/goroda/moskva/sergiev-posad.html" class="nearby-tag">Сергиев Посад</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>🚑 Нужен нарколог в Ногинске?</h2>
+                <p>Звоните — приедем за 40-50 минут!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);"><span>📞</span> 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Все районы.</p>
+            </div>
+        </section>
+
+        <!-- FAQ - УНИКАЛЬНЫЕ ВОПРОСЫ ДЛЯ НОГИНСКА -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Вопросы жителей Ногинска</h2>
+                    <p>Ответы</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">Как быстро приедете в Ногинск?<span>▼</span></div>
+                        <div class="faq-answer">40-50 минут в любой район города благодаря Горьковскому шоссе.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Работаете ли в Глухово?<span>▼</span></div>
+                        <div class="faq-answer">Да, работаем во всех микрорайонах, включая Глухово, Купавну, Ямскую, Строителей.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Есть ли скидки для ногинчан?<span>▼</span></div>
+                        <div class="faq-answer">Цены единые для всех городов области. Дополнительные скидки для пенсионеров и многодетных.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Можно ли анонимно?<span>▼</span></div>
+                        <div class="faq-answer">Да, 100% анонимность. Врач приезжает на машине без опознавательных знаков.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Работаете ли возле храма?<span>▼</span></div>
+                        <div class="faq-answer">Да, работаем во всех районах Ногинска, включая центральный район возле храма Святого Николая.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Сколько стоит выезд?<span>▼</span></div>
+                        <div class="faq-answer">От 990 ₽ за консультацию. Цена не зависит от района Ногинска.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Ногинск, Московская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                        <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                        <li><a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/offer.html">Публичная оферта</a></li>
+                        <li><a href="/soglasie.html">Согласие на обработку данных</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

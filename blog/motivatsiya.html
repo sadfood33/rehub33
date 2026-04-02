@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мотивация на лечение — Как помочь близкому отказаться от алкоголя | Блог ТыСпас</title>
+    <meta name="description" content="Психологические техники мотивации на лечение алкоголизма. Как разговорить, что говорить, ошибки родственников. Советы психологов и наркологов.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP BAR */
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+
+        /* HEADER */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        
+        /* NAVIGATION */
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu > ul > li > a .arrow { display: inline-block; margin-left: 4px; font-size: 9px; transition: 0.3s; }
+        .nav-menu > ul > li:hover > a .arrow { transform: rotate(180deg); }
+        
+        .nav-menu .dropdown {
+            position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover);
+            border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s; z-index: 1000;
+            border-top: 3px solid var(--primary); max-height: 80vh; overflow-y: auto;
+        }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown li:last-child { border-bottom: none; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; transition: 0.2s; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); padding-left: 22px; }
+
+        .nav-menu .dropdown .has-submenu { position: relative; }
+        .nav-menu .dropdown .submenu {
+            position: absolute; left: 100%; top: 0; background: var(--white);
+            box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 240px;
+            opacity: 0; visibility: hidden; transform: translateX(10px); transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        .nav-menu .dropdown .has-submenu:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .nav-menu .dropdown .submenu-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 12px;
+            background: var(--bg); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .nav-menu .dropdown.mega-menu { min-width: 550px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .nav-menu .dropdown.mega-menu .column { padding: 10px 0; }
+        .nav-menu .dropdown.mega-menu .column-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 14px;
+            background: var(--bg); margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-menu .dropdown.mega-menu .view-all {
+            padding: 12px 18px; color: var(--primary); font-weight: 600; font-size: 13px;
+            background: #eff6ff; text-align: center;
+        }
+        .nav-menu .dropdown.mega-menu .view-all:hover { background: #dbeafe; }
+
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); transition: 0.3s; }
+        .phone:hover { color: var(--primary-dark); }
+        .work-time { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .pulse { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary); padding: 10px; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        .mobile-menu-overlay.active { display: block; }
+
+        /* BUTTONS */
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--white); color: var(--primary); font-weight: 800; }
+        .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--white); }
+        .btn-secondary:hover { background: var(--primary); color: var(--white); border-color: var(--primary); transform: translateY(-3px); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #d97706; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+        /* HERO */
+        .page-hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #0ea5e9 100%); color: var(--white); padding: 60px 0; }
+        .page-hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .page-hero-content h1 { font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .page-hero-content .subtitle { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .page-hero-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        .page-hero-feature { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+        .page-hero-feature-icon { width: 28px; height: 28px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .page-hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .page-hero-card { background: var(--white); border-radius: 20px; padding: 35px; box-shadow: var(--shadow-hover); color: var(--text); }
+        .page-hero-card-title { font-size: 22px; font-weight: 800; margin-bottom: 15px; color: var(--primary); }
+        .page-hero-card-price { font-size: 38px; font-weight: 900; color: var(--primary); margin-bottom: 10px; }
+        .page-hero-card-price span { font-size: 14px; color: var(--text-light); font-weight: 400; }
+        .page-hero-card-list { margin-bottom: 25px; }
+        .page-hero-card-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 14px; }
+
+        /* BREADCRUMBS */
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+
+        /* URGENCY BAR */
+        .urgency-bar { background: var(--success); color: var(--white); padding: 15px 0; text-align: center; font-weight: 700; font-size: 16px; }
+        .urgency-bar .container { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .urgency-icon { animation: shake 2s infinite; }
+        @keyframes shake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+
+        /* CONTENT */
+        .content-section { padding: 80px 0; background: var(--white); }
+        .content-section.alt { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        
+        .text-content { max-width: 1000px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content h4 { font-size: 20px; font-weight: 600; margin: 30px 0 15px; color: var(--primary); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .warning { background: #fee2e2; padding: 20px; border-radius: 12px; border-left: 4px solid var(--info); margin: 25px 0; }
+        .text-content .info-box { background: #dbeafe; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 25px 0; }
+
+        /* TIPS GRID - УНИКАЛЬНЫЙ БЛОК ДЛЯ СТАТЬИ */
+        .tips { padding: 80px 0; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tip-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border-left: 4px solid var(--success); }
+        .tip-card h4 { font-size: 18px; margin-bottom: 15px; color: var(--text); display: flex; align-items: center; gap: 10px; }
+        .tip-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; }
+
+        /* CTA */
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* FOOTER */
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        .footer-license { margin-top: 15px; font-size: 12px; color: #4b5563; }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .page-hero .container { grid-template-columns: 1fr; }
+            .page-hero-content h1 { font-size: 32px; }
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; overflow-y: auto; }
+            .nav-menu.active { display: block; }
+            .nav-menu > ul { flex-direction: column; padding: 20px; }
+            .nav-menu > ul > li { border-bottom: 1px solid #e5e7eb; }
+            .nav-menu > ul > li > a { padding: 15px 0; font-size: 15px; }
+            .nav-menu .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; min-width: 100%; padding-left: 15px; display: none; }
+            .nav-menu > ul > li:hover .dropdown { display: block; }
+            .nav-menu .dropdown.mega-menu { grid-template-columns: 1fr; min-width: 100%; }
+            .header-contacts { display: none; }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 35px; height: 35px; font-size: 18px; }
+            .page-hero { padding: 40px 0; }
+            .page-hero-content h1 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Москва, МО и Ярославская область</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li>
+                            <a href="/uslugi/">Услуги <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li class="submenu-title">⚡ Экстренная помощь</li>
+                                <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                                <li><a href="/uslugi/narkolog-na-dom.html">Нарколог на дом</a></li>
+                                <li><a href="/uslugi/kapelitsa.html">Капельница</a></li>
+                                <li class="submenu-title">🏥 Стационар</li>
+                                <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                                <li class="submenu-title">🔄 Реабилитация</li>
+                                <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                                <li class="submenu-title">🛡️ Кодирование</li>
+                                <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/goroda/">Города <span class="arrow">▼</span></a>
+                            <ul class="dropdown mega-menu">
+                                <li class="column">
+                                    <div class="column-title">📍 Московская область</div>
+                                    <a href="/goroda/moskva/balashiha.html">Балашиха</a>
+                                    <a href="/goroda/moskva/khimki.html">Химки</a>
+                                    <a href="/goroda/moskva/podolsk.html">Подольск</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города МО →</a>
+                                </li>
+                                <li class="column">
+                                    <div class="column-title">📍 Ярославская область</div>
+                                    <a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a>
+                                    <a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a>
+                                    <a href="/goroda/yaroslavl/pereslavl.html">Переславль-Залесский</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города ЯО →</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/blog/">Блог <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li><a href="/blog/priznaki-zapoya.html">Признаки запоя</a></li>
+                                <li><a href="/blog/metody-kodirovaniya.html">Методы кодирования</a></li>
+                                <li><a href="/blog/">📋 Все статьи →</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#pricing">Цены</a></li>
+                        <li><a href="/#text-reviews">Отзывы</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                    <div class="work-time"><span class="pulse"></span><span>24/7</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span>
+            <a href="/blog/">Блог</a> <span>/</span>
+            <span>Мотивация на лечение</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- URGENCY BAR -->
+        <div class="urgency-bar">
+            <div class="container">
+                <span class="urgency-icon">💬</span>
+                <span>Как помочь близкому принять решение о лечении — советы психологов</span>
+            </div>
+        </div>
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Мотивация на лечение — Как помочь близкому</h1>
+                    <p class="subtitle">Психологические техники и практические советы для родственников. Как разговорить, что говорить, чего избегать.</p>
+                    <div class="page-hero-features">
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>8 техник мотивации</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>5 ошибок родственников</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Когда обращаться к специалисту</span></div>
+                        <div class="page-hero-feature"><div class="page-hero-feature-icon">✓</div><span>Примеры диалогов</span></div>
+                    </div>
+                    <div class="page-hero-buttons">
+                        <a href="tel:88004448989" class="btn btn-primary btn-lg"><span>📞</span> Консультация психолога</a>
+                        <a href="/uslugi/psihologicheskaya-pomoshch.html" class="btn btn-secondary btn-lg">Услуги</a>
+                    </div>
+                </div>
+                <div class="page-hero-card">
+                    <div class="page-hero-card-title">📊 Статистика</div>
+                    <div class="page-hero-card-price">78% <span>успешных мотиваций</span></div>
+                    <ul class="page-hero-card-list">
+                        <li>✅ Профессиональная помощь</li>
+                        <li>✅ Индивидуальный подход</li>
+                        <li>✅ Поддержка семьи</li>
+                        <li>✅ Конфиденциально</li>
+                    </ul>
+                    <a href="tel:88004448989" class="btn btn-accent" style="width: 100%; justify-content: center;">Помощь сейчас</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT BLOCK 1 - УНИКАЛЬНЫЙ ПРО МОТИВАЦИЮ -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Почему сложно мотивировать на лечение</h2>
+                    <p><strong>Алкогольная зависимость</strong> — это не просто вредная привычка, а заболевание, которое меняет мышление и поведение человека. Пациент часто отрицает проблему, обвиняет окружающих, боится перемен. Понимание этих механизмов помогает найти правильный подход.</p>
+                    
+                    <div class="warning">
+                        <strong>Важно:</strong> Давление, ультиматумы и скандалы только усиливают сопротивление. Мотивация должна быть мягкой, но настойчивой.
+                    </div>
+
+                    <h3>8 техник эффективной мотивации</h3>
+                    <p>Психологи рекомендуют следующие подходы:</p>
+                    <ul>
+                        <li><strong>Активное слушание</strong> — дайте человеку выговориться, не перебивайте;</li>
+                        <li><strong>Эмпатия</strong> — покажите, что вы понимаете его чувства, даже если не согласны;</li>
+                        <li><strong>Вопросы вместо утверждений</strong> — «Что ты думаешь о лечении?» вместо «Тебе нужно лечиться»;</li>
+                        <li><strong>Фокус на последствиях</strong> — мягко напоминайте о проблемах, которые создаёт алкоголь;</li>
+                        <li><strong>Поддержка, а не контроль</strong> — предлагайте помощь, а не диктуйте условия;</li>
+                        <li><strong>Личный пример</strong> — расскажите о положительных изменениях в жизни после лечения;</li>
+                        <li><strong>Маленькие шаги</strong> — предложите начать с консультации, а не сразу с кодирования;</li>
+                        <li><strong>Профессиональная помощь</strong> — пригласите психолога для совместной беседы.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Статистика:</strong> 78% пациентов соглашаются на лечение после 3-5 мягких, но настойчивых разговоров с близкими.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIPS GRID - УНИКАЛЬНЫЙ БЛОК ПРО ОШИБКИ -->
+        <section class="tips">
+            <div class="container">
+                <div class="section-header">
+                    <h2>5 ошибок родственников</h2>
+                    <p>Чего делать НЕЛЬЗЯ при мотивации</p>
+                </div>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>❌ Ультиматумы</h4>
+                        <p>«Или лечишься, или уходишь» — вызывает сопротивление и агрессию, а не желание меняться.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>❌ Обвинения</h4>
+                        <p>«Ты всё испортил», «Из-за тебя мы страдаем» — усиливает чувство вины и желание «заглушить» его алкоголем.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>❌ Контроль</h4>
+                        <p>Постоянные проверки, запрет на выход — воспринимается как недоверие и провоцирует бунт.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>❌ Обещания «всё простить»</h4>
+                        <p>«Лечись, и мы забудем всё плохое» — создаёт ложные ожидания и разочарование при рецидиве.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>❌ Игнорирование проблемы</h4>
+                        <p>«Само пройдёт», «Он просто устал» — откладывает лечение и усугубляет зависимость.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT BLOCK 2 - УНИКАЛЬНЫЙ ПРО ДИАЛОГИ -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Примеры эффективных диалогов</h2>
+                    
+                    <h3>Как начать разговор</h3>
+                    <p><strong>Неправильно:</strong> «Ты опять пил! Когда это кончится?»</p>
+                    <p><strong>Правильно:</strong> «Я заметил, что ты часто устаёшь и плохо себя чувствуешь. Может, поговорим о том, как тебе помочь?»</p>
+
+                    <h3>Как реагировать на отказ</h3>
+                    <p><strong>Неправильно:</strong> «Ты не хочешь лечиться? Тогда сам разбирайся!»</p>
+                    <p><strong>Правильно:</strong> «Я понимаю, что это страшно. Давай просто сходим на консультацию, без обязательств. Что ты об этом думаешь?»</p>
+
+                    <h3>Как поддержать после согласия</h3>
+                    <p><strong>Неправильно:</strong> «Наконец-то! Теперь всё будет хорошо!»</p>
+                    <p><strong>Правильно:</strong> «Я горжусь твоим решением. Я буду рядом на каждом этапе. Давай вместе составим план.»</p>
+
+                    <div class="highlight">
+                        <strong>Важно:</strong> 65% пациентов принимают решение о лечении после того, как видят, что близкие готовы поддержать, а не осудить.
+                    </div>
+
+                    <h3>Когда обращаться к специалисту</h3>
+                    <p>Пригласите психолога или нарколога для мотивационной беседы, если:</p>
+                    <ul>
+                        <li>Разговоры не дают результата более 2 недель;</li>
+                        <li>Пациент проявляет агрессию при упоминании лечения;</li>
+                        <li>Наблюдаются признаки депрессии или суицидальных мыслей;</li>
+                        <li>Зависимость длится более 2 лет;</li>
+                        <li>Пациент отрицает проблему полностью.</li>
+                    </ul>
+
+                    <div class="warning">
+                        <strong>Опасно:</strong> Самостоятельные попытки «вылечить» близкого без профессиональной помощи могут привести к срывам, конфликтам и ухудшению состояния.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>💬 Нужна помощь в мотивации?</h2>
+                <p>Консультация психолога поможет найти правильный подход!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);"><span>📞</span> 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Бесплатная консультация.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Москва, Московская и Ярославская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                        <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                        <li><a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/offer.html">Публичная оферта</a></li>
+                        <li><a href="/soglasie.html">Согласие на обработку данных</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

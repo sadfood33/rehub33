@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Города выезда нарколога — Москва, Московская и Ярославская область | ТыСпас</title>
+    <meta name="description" content="Выезд нарколога на дом во все города Московской и Ярославской области. Анонимная помощь 24/7. Приезд бригады за 30-60 минут.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP BAR */
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+
+        /* HEADER */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        
+        /* NAVIGATION */
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu > ul > li > a .arrow { display: inline-block; margin-left: 4px; font-size: 9px; transition: 0.3s; }
+        .nav-menu > ul > li:hover > a .arrow { transform: rotate(180deg); }
+        
+        .nav-menu .dropdown {
+            position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover);
+            border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s; z-index: 1000;
+            border-top: 3px solid var(--primary); max-height: 80vh; overflow-y: auto;
+        }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown li:last-child { border-bottom: none; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; transition: 0.2s; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); padding-left: 22px; }
+
+        .nav-menu .dropdown .has-submenu { position: relative; }
+        .nav-menu .dropdown .submenu {
+            position: absolute; left: 100%; top: 0; background: var(--white);
+            box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 240px;
+            opacity: 0; visibility: hidden; transform: translateX(10px); transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        .nav-menu .dropdown .has-submenu:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .nav-menu .dropdown .submenu-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 12px;
+            background: var(--bg); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .nav-menu .dropdown.mega-menu { min-width: 550px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .nav-menu .dropdown.mega-menu .column { padding: 10px 0; }
+        .nav-menu .dropdown.mega-menu .column-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 14px;
+            background: var(--bg); margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-menu .dropdown.mega-menu .view-all {
+            padding: 12px 18px; color: var(--primary); font-weight: 600; font-size: 13px;
+            background: #eff6ff; text-align: center;
+        }
+        .nav-menu .dropdown.mega-menu .view-all:hover { background: #dbeafe; }
+
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); transition: 0.3s; }
+        .phone:hover { color: var(--primary-dark); }
+        .work-time { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .pulse { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary); padding: 10px; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        .mobile-menu-overlay.active { display: block; }
+
+        /* BUTTONS */
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--white); color: var(--primary); font-weight: 800; }
+        .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #d97706; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+        /* HERO */
+        .page-hero { background: var(--gradient-1); color: var(--white); padding: 70px 0; text-align: center; }
+        .page-hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 20px; }
+        .page-hero p { font-size: 18px; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+
+        /* BREADCRUMBS */
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+
+        /* CONTENT */
+        .content-section { padding: 80px 0; background: var(--white); }
+        .content-section.alt { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        
+        .text-content { max-width: 1000px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content h4 { font-size: 20px; font-weight: 600; margin: 30px 0 15px; color: var(--primary); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .info-box { background: #dbeafe; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 25px 0; }
+
+        /* CITY REGIONS */
+        .city-regions { padding: 80px 0; background: var(--bg); }
+        .region-block { margin-bottom: 60px; }
+        .region-title { font-size: 32px; font-weight: 800; color: var(--text); margin-bottom: 30px; display: flex; align-items: center; gap: 12px; }
+        .region-icon { width: 50px; height: 50px; background: var(--gradient-1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        
+        .cities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .city-card { background: var(--white); padding: 20px; border-radius: 12px; box-shadow: var(--shadow); transition: 0.3s; border-left: 4px solid var(--primary); }
+        .city-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-left-color: var(--accent); }
+        .city-card h4 { font-size: 17px; margin-bottom: 8px; color: var(--text); }
+        .city-card p { color: var(--text-light); font-size: 13px; line-height: 1.5; margin-bottom: 12px; }
+        .city-card .btn { width: 100%; justify-content: center; padding: 10px 20px; font-size: 14px; }
+
+        /* SERVICES IN CITIES */
+        .services-in-cities { padding: 60px 0; background: var(--white); }
+        .services-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .service-tag { background: var(--bg); padding: 10px 20px; border-radius: 25px; font-size: 14px; color: var(--text); border: 2px solid #e5e7eb; }
+
+        /* CTA */
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* FOOTER */
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        .footer-license { margin-top: 15px; font-size: 12px; color: #4b5563; }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; overflow-y: auto; }
+            .nav-menu.active { display: block; }
+            .nav-menu > ul { flex-direction: column; padding: 20px; }
+            .nav-menu > ul > li { border-bottom: 1px solid #e5e7eb; }
+            .nav-menu > ul > li > a { padding: 15px 0; font-size: 15px; }
+            .nav-menu .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; min-width: 100%; padding-left: 15px; display: none; }
+            .nav-menu > ul > li:hover .dropdown { display: block; }
+            .nav-menu .dropdown.mega-menu { grid-template-columns: 1fr; min-width: 100%; }
+            .header-contacts { display: none; }
+            .page-hero h1 { font-size: 32px; }
+            .cities-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 35px; height: 35px; font-size: 18px; }
+            .page-hero { padding: 50px 0; }
+            .page-hero h1 { font-size: 28px; }
+            .cities-grid { grid-template-columns: 1fr; }
+            .region-title { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Москва, МО и Ярославская область</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li>
+                            <a href="/uslugi/">Услуги <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li class="submenu-title">⚡ Экстренная помощь</li>
+                                <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                                <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                                <li class="submenu-title">🏥 Стационар</li>
+                                <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                                <li class="submenu-title">🔄 Реабилитация</li>
+                                <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/goroda/">Города <span class="arrow">▼</span></a>
+                            <ul class="dropdown mega-menu">
+                                <li class="column">
+                                    <div class="column-title">📍 Московская область</div>
+                                    <a href="/goroda/moskva/balashiha.html">Балашиха</a>
+                                    <a href="/goroda/moskva/khimki.html">Химки</a>
+                                    <a href="/goroda/moskva/podolsk.html">Подольск</a>
+                                    <a href="/goroda/vse-goroda-mo.html" class="view-all">📋 Все города МО →</a>
+                                </li>
+                                <li class="column">
+                                    <div class="column-title">📍 Ярославская область</div>
+                                    <a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a>
+                                    <a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a>
+                                    <a href="/goroda/yaroslavl/pereslavl.html">Переславль-Залесский</a>
+                                    <a href="/goroda/vse-goroda-yo.html" class="view-all">📋 Все города ЯО →</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/blog/">Блог <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li><a href="/blog/priznaki-zapoya.html">Признаки запоя</a></li>
+                                <li><a href="/blog/metody-kodirovaniya.html">Методы кодирования</a></li>
+                                <li><a href="/blog/">📋 Все статьи →</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#pricing">Цены</a></li>
+                        <li><a href="/#text-reviews">Отзывы</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                    <div class="work-time"><span class="pulse"></span><span>24/7</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span> <span>Города</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Города выезда нарколога</h1>
+                <p>Выезд наркологической бригады во все города Московской и Ярославской области. Анонимная помощь 24/7. Приезд за 30-60 минут.</p>
+                <div style="margin-top: 30px;">
+                    <a href="tel:88004448989" class="btn btn-primary btn-lg">📞 Вызвать врача</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CITY REGIONS -->
+        <section class="city-regions">
+            <div class="container">
+                
+                <!-- Московская область -->
+                <div class="region-block">
+                    <div class="region-title">
+                        <div class="region-icon">📍</div>
+                        <span>Московская область (40 городов)</span>
+                    </div>
+                    <div class="cities-grid">
+                        <div class="city-card">
+                            <h4>Балашиха</h4>
+                            <p>Выезд за 30-40 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/balashiha.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Химки</h4>
+                            <p>Выезд за 25-35 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/khimki.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Подольск</h4>
+                            <p>Выезд за 35-45 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/podolsk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Королёв</h4>
+                            <p>Выезд за 30-40 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/korolev.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Мытищи</h4>
+                            <p>Выезд за 25-35 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/mytishchi.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Коломна</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/kolomna.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Одинцово</h4>
+                            <p>Выезд за 30-40 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/odintsovo.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Сергиев Посад</h4>
+                            <p>Выезд за 45-60 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/sergiev-posad.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Ногинск</h4>
+                            <p>Выезд за 40-50 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/noginsk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Орехово-Зуево</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/orekhovo-zuyevo.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Электросталь</h4>
+                            <p>Выезд за 40-50 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/elektrostal.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Щёлково</h4>
+                            <p>Выезд за 35-45 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/shchelkovo.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Пушкино</h4>
+                            <p>Выезд за 35-45 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/pushkino.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Раменское</h4>
+                            <p>Выезд за 40-50 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/ramenskoe.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Жуковский</h4>
+                            <p>Выезд за 40-50 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/zhukovskiy.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Домодедово</h4>
+                            <p>Выезд за 40-55 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/domodedovo.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Люберцы</h4>
+                            <p>Выезд за 30-40 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/lyubertsy.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Красногорск</h4>
+                            <p>Выезд за 25-35 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/krasnogorsk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Долгопрудный</h4>
+                            <p>Выезд за 25-35 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/dolgoprudnyy.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Реутов</h4>
+                            <p>Выезд за 30-40 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/reutov.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Лобня</h4>
+                            <p>Выезд за 35-45 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/lobnya.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Дубна</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/dubna.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Ивантеевка</h4>
+                            <p>Выезд за 35-45 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/ivanteevka.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Клин</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/klin.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Дмитров</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/dmitrov.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Ступино</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/stupino.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Чехов</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/chekhov.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Серпухов</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/serpukhov.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Можайск</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/mozhaysk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Истра</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/istra.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Звенигород</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/zvenigorod.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Воскресенск</h4>
+                            <p>Выезд за 55-75 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/voskresensk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Егорьевск</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/egorevsk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Луховицы</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/lukhovitsy.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Озёры</h4>
+                            <p>Выезд за 75-95 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/ozery.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Кашира</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/kashira.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Павловский Посад</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/pavlovskiy-posad.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Электроугли</h4>
+                            <p>Выезд за 45-60 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/elektrougli.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Фрязино</h4>
+                            <p>Выезд за 40-50 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/fryazino.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Лыткарино</h4>
+                            <p>Выезд за 40-55 минут. Все услуги.</p>
+                            <a href="/goroda/moskva/lytkarino.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ярославская область -->
+                <div class="region-block">
+                    <div class="region-title">
+                        <div class="region-icon">📍</div>
+                        <span>Ярославская область (20 городов)</span>
+                    </div>
+                    <div class="cities-grid">
+                        <div class="city-card">
+                            <h4>Ярославль</h4>
+                            <p>Выезд за 30-45 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/yaroslavl.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Рыбинск</h4>
+                            <p>Выезд за 40-60 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/rybinsk.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Переславль-Залесский</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/pereslavl.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Тутаев</h4>
+                            <p>Выезд за 40-55 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/tutaev.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Углич</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/uglich.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Ростов</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/rostov.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Гаврилов-Ям</h4>
+                            <p>Выезд за 45-60 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/gavrilov-yam.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Данилов</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/danilov.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Пошехонье</h4>
+                            <p>Выезд за 80-100 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/poshekhone.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Любим</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/lyubim.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Мышкин</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/myshkin.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Ярославский район</h4>
+                            <p>Выезд за 40-60 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/yaroslavskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Рыбинский район</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/rybinskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Переславский район</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/pereslavskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Тутаевский район</h4>
+                            <p>Выезд за 50-70 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/tutaevskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Угличский район</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/uglichskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Ростовский район</h4>
+                            <p>Выезд за 60-80 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/rostovskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Гаврилов-Ямский район</h4>
+                            <p>Выезд за 55-75 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/gavrilov-yamskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Даниловский район</h4>
+                            <p>Выезд за 70-90 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/danilovskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                        <div class="city-card">
+                            <h4>Пошехонский район</h4>
+                            <p>Выезд за 90-110 минут. Все услуги.</p>
+                            <a href="/goroda/yaroslavl/poshekhonskiy-rn.html" class="btn btn-accent">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICES IN CITIES -->
+        <section class="services-in-cities">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Услуги доступны во всех городах</h2>
+                    <p>В каждом городе мы оказываем полный спектр наркологической помощи</p>
+                </div>
+                <div class="services-list">
+                    <span class="service-tag">💉 Вывод из запоя</span>
+                    <span class="service-tag">🛡️ Кодирование</span>
+                    <span class="service-tag">🏥 Стационар</span>
+                    <span class="service-tag">🔄 Реабилитация</span>
+                    <span class="service-tag">🧠 Психотерапия</span>
+                    <span class="service-tag">🚑 Скорая помощь</span>
+                    <span class="service-tag">💊 Детоксикация</span>
+                    <span class="service-tag">📋 Консультация</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO TEXT -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Выезд нарколога во все города Московской и Ярославской области</h2>
+                    <p><strong>Сервис помощи зависимым «ТыСпас»</strong> организует выезд наркологических бригад во все города Московской и Ярославской области. Наши партнёрские клиники обеспечивают покрытие всех населённых пунктов регионов, что позволяет нам гарантировать приезд врача в течение 30-90 минут в зависимости от удалённости.</p>
+
+                    <div class="highlight">
+                        <strong>Важно:</strong> Во всех городах доступны все услуги: вывод из запоя, кодирование, стационар, реабилитация. Цены единые для всего региона.
+                    </div>
+
+                    <h3>Время прибытия бригады</h3>
+                    <p>Время прибытия зависит от удалённости города от Москвы и Ярославля:</p>
+                    <ul>
+                        <li><strong>Ближние города МО</strong> (Химки, Мытищи, Красногорск, Люберцы) — 25-35 минут;</li>
+                        <li><strong>Средние города МО</strong> (Балашиха, Подольск, Королёв, Щёлково) — 30-50 минут;</li>
+                        <li><strong>Дальние города МО</strong> (Дубна, Клин, Можайск, Егорьевск) — 60-90 минут;</li>
+                        <li><strong>Ярославль и пригород</strong> — 30-45 минут;</li>
+                        <li><strong>Города Ярославской области</strong> — 40-100 минут.</li>
+                    </ul>
+
+                    <h3>Какие услуги доступны в городах?</h3>
+                    <p>В каждом городе мы оказываем полный спектр услуг:</p>
+                    <ul>
+                        <li><strong>Экстренная помощь на дому</strong> — вывод из запоя, капельница, детоксикация;</li>
+                        <li><strong>Кодирование</strong> — медикаментозное и психотерапевтическое;</li>
+                        <li><strong>Стационар</strong> — на дому или госпитализация в клинику;</li>
+                        <li><strong>Реабилитация</strong> — направление в реабилитационный центр;</li>
+                        <li><strong>Психотерапия</strong> — консультации психолога и психотерапевта.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Единые стандарты:</strong> Качество услуг одинаково во всех городах. Все врачи имеют сертификаты, препараты сертифицированы, лечение анонимно.
+                    </div>
+
+                    <h3>Как вызвать нарколога в своём городе?</h3>
+                    <p>Для вызова нарколога достаточно позвонить по единому номеру 8 800 444-89-89. Диспетчер:</p>
+                    <ul>
+                        <li>Уточнит ваш город и адрес;</li>
+                        <li>Подберёт ближайшую свободную бригаду;</li>
+                        <li>Назовёт точное время прибытия;</li>
+                        <li>Проконсультирует по услугам и ценам.</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>Круглосуточно:</strong> Выездные бригады работают 24/7 без выходных и праздников. Звоните в любое время!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Нужен нарколог в вашем городе?</h2>
+                <p>Звоните — определим ближайшую бригаду и время приезда!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);">📞 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Все города МО и ЯО.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Москва, Московская и Ярославская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                        <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                        <li><a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/offer.html">Публичная оферта</a></li>
+                        <li><a href="/soglasie.html">Согласие на обработку данных</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
