@@ -54,7 +54,7 @@ def get_service_genitive(service):
     return genitive_map.get(service, service)
 
 
-def generate_city_landing_page(city):
+def generate_city_landing_page(city) -> str:
     """Генерирует ссылочную страницу для города со всеми услугами"""
     
     city_capitalized = city.capitalize()
