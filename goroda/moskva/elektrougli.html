@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электроугли — Лечение алкоголизма | ТыСпас</title>
+    <meta name="description" content="Лечение алкоголизма в Электроугли. Профессиональная помощь наркологов. Круглосуточно, анонимно.">
+    
+    <style>
+        :root {
+            --primary: #2563eb; --primary-dark: #1d4ed8; --secondary: #0ea5e9;
+            --accent: #f59e0b; --success: #10b981; --info: #3b82f6;
+            --text: #1f2937; --text-light: #6b7280;
+            --bg: #f3f4f6; --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { color: var(--text); line-height: 1.7; background: var(--bg); }
+        a { text-decoration: none; } ul { list-style: none; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP BAR */
+        .top-bar { background: var(--gradient-1); color: var(--white); padding: 10px 0; font-size: 13px; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .top-bar-info { display: flex; gap: 20px; align-items: center; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .license-badge { background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 15px; }
+
+        /* HEADER */
+        header { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .header-main { padding: 0; }
+        .header-main .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; height: 70px; }
+        .logo { font-size: 24px; font-weight: 800; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 40px; height: 40px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; -webkit-text-fill-color: white; }
+        
+        /* NAVIGATION */
+        .nav-menu { position: relative; }
+        .nav-menu > ul { display: flex; gap: 3px; }
+        .nav-menu > ul > li { position: relative; }
+        .nav-menu > ul > li > a { display: block; padding: 25px 14px; font-weight: 600; color: var(--text); transition: 0.3s; font-size: 14px; }
+        .nav-menu > ul > li > a:hover { color: var(--primary); background: var(--bg); }
+        .nav-menu > ul > li > a .arrow { display: inline-block; margin-left: 4px; font-size: 9px; transition: 0.3s; }
+        .nav-menu > ul > li:hover > a .arrow { transform: rotate(180deg); }
+        
+        .nav-menu .dropdown {
+            position: absolute; top: 100%; left: 0; background: var(--white); box-shadow: var(--shadow-hover);
+            border-radius: 0 0 12px 12px; min-width: 260px; opacity: 0; visibility: hidden;
+            transform: translateY(10px); transition: all 0.3s; z-index: 1000;
+            border-top: 3px solid var(--primary); max-height: 80vh; overflow-y: auto;
+        }
+        .nav-menu > ul > li:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-menu .dropdown li { border-bottom: 1px solid #f3f4f6; }
+        .nav-menu .dropdown li:last-child { border-bottom: none; }
+        .nav-menu .dropdown a { display: block; padding: 11px 18px; color: var(--text); font-size: 13px; transition: 0.2s; }
+        .nav-menu .dropdown a:hover { background: var(--bg); color: var(--primary); padding-left: 22px; }
+
+        .nav-menu .dropdown .has-submenu { position: relative; }
+        .nav-menu .dropdown .submenu {
+            position: absolute; left: 100%; top: 0; background: var(--white);
+            box-shadow: var(--shadow-hover); border-radius: 0 0 12px 12px; min-width: 240px;
+            opacity: 0; visibility: hidden; transform: translateX(10px); transition: all 0.3s;
+            border-left: 3px solid var(--accent);
+        }
+        .nav-menu .dropdown .has-submenu:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .nav-menu .dropdown .submenu-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 12px;
+            background: var(--bg); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .nav-menu .dropdown.mega-menu { min-width: 550px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .nav-menu .dropdown.mega-menu .column { padding: 10px 0; }
+        .nav-menu .dropdown.mega-menu .column-title {
+            padding: 10px 18px; font-weight: 700; color: var(--primary); font-size: 14px;
+            background: var(--bg); margin-bottom: 5px; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-menu .dropdown.mega-menu .view-all {
+            padding: 12px 18px; color: var(--primary); font-weight: 600; font-size: 13px;
+            background: #eff6ff; text-align: center;
+        }
+        .nav-menu .dropdown.mega-menu .view-all:hover { background: #dbeafe; }
+
+        .header-contacts { display: flex; align-items: center; gap: 15px; }
+        .phone { font-size: 18px; font-weight: 800; color: var(--primary); transition: 0.3s; }
+        .phone:hover { color: var(--primary-dark); }
+        .work-time { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        .pulse { width: 7px; height: 7px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--primary); padding: 10px; }
+        .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 998; }
+        .mobile-menu-overlay.active { display: block; }
+
+        /* BUTTONS */
+        .btn { padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; border: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-primary { background: var(--white); color: var(--primary); font-weight: 800; }
+        .btn-primary:hover { background: var(--accent); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-secondary { background: var(--white); color: var(--primary); border: 2px solid var(--white); }
+        .btn-secondary:hover { background: var(--primary); color: var(--white); border-color: var(--primary); transform: translateY(-3px); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #d97706; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 18px; }
+
+        /* HERO */
+        .page-hero { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #0ea5e9 100%); color: var(--white); padding: 60px 0; }
+        .page-hero .container { max-width: 900px; }
+        .page-hero-content h1 { font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+        .page-hero-content .subtitle { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+
+        /* BREADCRUMBS */
+        .breadcrumbs { padding: 20px 0; background: var(--white); border-bottom: 1px solid #e5e7eb; }
+        .breadcrumbs .container { display: flex; gap: 10px; font-size: 14px; color: var(--text-light); }
+        .breadcrumbs a { color: var(--primary); }
+
+        /* CONTENT */
+        .content-section { padding: 80px 0; background: var(--white); }
+        .content-section.alt { background: var(--bg); }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 15px; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        
+        .text-content { max-width: 900px; margin: 0 auto; }
+        .text-content h3 { font-size: 24px; font-weight: 700; margin: 40px 0 20px; color: var(--text); }
+        .text-content h4 { font-size: 20px; font-weight: 600; margin: 30px 0 15px; color: var(--primary); }
+        .text-content p { margin-bottom: 20px; color: var(--text-light); font-size: 16px; text-align: justify; }
+        .text-content ul { margin: 20px 0 20px 25px; }
+        .text-content li { margin-bottom: 10px; color: var(--text-light); list-style: disc; }
+        .text-content .highlight { background: #fef3c7; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 25px 0; }
+        .text-content .warning { background: #fee2e2; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; margin: 25px 0; }
+        .text-content .info-box { background: #dbeafe; padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); margin: 25px 0; }
+
+        /* STAGES */
+        .stages { padding: 80px 0; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); }
+        .stages-container { max-width: 900px; margin: 0 auto; }
+        .stage-item { display: flex; gap: 30px; margin-bottom: 40px; position: relative; }
+        .stage-item:last-child { margin-bottom: 0; }
+        .stage-number { width: 60px; height: 60px; background: var(--gradient-1); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 900; flex-shrink: 0; box-shadow: var(--shadow); }
+        .stage-content { background: var(--white); padding: 25px; border-radius: 16px; flex: 1; box-shadow: var(--shadow); }
+        .stage-content h3 { font-size: 20px; margin-bottom: 10px; color: var(--text); }
+        .stage-content p { color: var(--text-light); font-size: 15px; line-height: 1.6; }
+
+        /* SYMPTOMS */
+        .symptoms { padding: 80px 0; background: var(--white); }
+        .symptoms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .symptom-card { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border-left: 4px solid var(--info); }
+        .symptom-card h4 { font-size: 18px; margin-bottom: 15px; color: var(--text); display: flex; align-items: center; gap: 10px; }
+        .symptom-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; }
+
+        /* CTA */
+        .cta-section { background: var(--gradient-1); padding: 80px 0; color: var(--white); text-align: center; }
+        .cta-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 20px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; opacity: 0.95; }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+        /* FOOTER */
+        footer { background: #111827; color: var(--white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 20px; color: var(--white); position: relative; padding-bottom: 10px; }
+        .footer-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: var(--primary); }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #9ca3af; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid #374151; padding-top: 25px; text-align: center; color: #6b7280; font-size: 14px; }
+        .footer-license { margin-top: 15px; font-size: 12px; color: #4b5563; }
+
+        /* MOBILE */
+        @media (max-width: 1024px) {
+            .page-hero-content h1 { font-size: 32px; }
+            .mobile-menu-btn { display: block; }
+            .nav-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; overflow-y: auto; }
+            .nav-menu.active { display: block; }
+            .nav-menu > ul { flex-direction: column; padding: 20px; }
+            .nav-menu > ul > li { border-bottom: 1px solid #e5e7eb; }
+            .nav-menu > ul > li > a { padding: 15px 0; font-size: 15px; }
+            .nav-menu .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; min-width: 100%; padding-left: 15px; display: none; }
+            .nav-menu > ul > li:hover .dropdown { display: block; }
+            .nav-menu .dropdown.mega-menu { grid-template-columns: 1fr; min-width: 100%; }
+            .header-contacts { display: none; }
+            .stage-item { flex-direction: column; align-items: center; text-align: center; }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .logo { font-size: 20px; }
+            .logo-icon { width: 35px; height: 35px; font-size: 18px; }
+            .page-hero { padding: 40px 0; }
+            .page-hero-content h1 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <div class="top-bar-item license-badge">📋 Лицензия № ЛО-50-01-000000</div>
+                <div class="top-bar-item">🌍 Москва, МО и Ярославская область</div>
+            </div>
+            <div class="top-bar-item">🔒 100% анонимно</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-main">
+            <div class="container">
+                <a href="/" class="logo">
+                    <div class="logo-icon">+</div>
+                    <span>Ты<span style="color: var(--primary);">Спас</span></span>
+                </a>
+
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li>
+                            <a href="/uslugi/">Услуги <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li class="submenu-title">⚡ Экстренная помощь</li>
+                                <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                                <li><a href="/uslugi/narkolog-na-dom.html">Нарколог на дом</a></li>
+                                <li><a href="/uslugi/kapelitsa.html">Капельница</a></li>
+                                <li class="submenu-title">🏥 Стационар</li>
+                                <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                                <li class="submenu-title">🔄 Реабилитация</li>
+                                <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                                <li class="submenu-title">🛡️ Кодирование</li>
+                                <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/goroda/">Города <span class="arrow">▼</span></a>
+                            <ul class="dropdown mega-menu">
+                                <li class="column">
+                                    <div class="column-title">📍 Московская область</div>
+                                    <a href="/goroda/moskva/balashiha.html">Балашиха</a>
+                                    <a href="/goroda/moskva/khimki.html">Химки</a>
+                                    <a href="/goroda/moskva/podolsk.html">Подольск</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города МО →</a>
+                                </li>
+                                <li class="column">
+                                    <div class="column-title">📍 Ярославская область</div>
+                                    <a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a>
+                                    <a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a>
+                                    <a href="/goroda/yaroslavl/pereslavl.html">Переславль-Залесский</a>
+                                    <a href="/goroda/" class="view-all">📋 Все города ЯО →</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/blog/">Блог <span class="arrow">▼</span></a>
+                            <ul class="dropdown">
+                                <li><a href="/blog/priznaki-zapoya.html">Признаки запоя</a></li>
+                                <li><a href="/blog/metody-kodirovaniya.html">Методы кодирования</a></li>
+                                <li><a href="/blog/">📋 Все статьи →</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/#pricing">Цены</a></li>
+                        <li><a href="/#text-reviews">Отзывы</a></li>
+                        <li><a href="/#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <div class="header-contacts">
+                    <a href="tel:88004448989" class="phone">8 800 444-89-89</a>
+                    <div class="work-time"><span class="pulse"></span><span>24/7</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="/">Главная</a> <span>/</span>
+            <span>Elektrougli</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Лечение алкоголизма в Электроугли</h1>
+                    <p class="subtitle">Профессиональная наркологическая помощь в Электроугли. Вывод из запоя, кодирование, реабилитация.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Что такое запой и как его распознать</h2>
+                    <p><strong>Запой</strong> — это состояние непрерывного употребления алкогольных напитков на протяжении нескольких дней или недель. В отличие от обычного пьянства, запой характеризуется потерей контроля над количеством выпитого и невозможностью самостоятельно прекратить употребление.</p>
+                    
+                    <div class="warning">
+                        <strong>Важно:</strong> Запой — это не просто «плохая привычка». Это серьёзное медицинское состояние, которое может привести к серьёзным осложнениям и даже летальному исходу. При первых признаках запоя необходима профессиональная помощь.
+                    </div>
+
+                    <h3>Основные признаки запоя</h3>
+                    <p>Запойное состояние характеризуется следующими симптомами:</p>
+                    <ul>
+                        <li><strong>Непрерывное употребление</strong> — алкоголь употребляется ежедневно без перерывов в течение нескольких дней;</li>
+                        <li><strong>Потеря контроля</strong> — человек не может контролировать количество выпитого;</li>
+                        <li><strong>Абстинентный синдром</strong> — при попытке прекратить употребление возникают тяжёлые симптомы;</li>
+                        <li><strong>Ухудшение здоровья</strong> — нарушается сон, аппетит, работа внутренних органов;</li>
+                        <li><strong>Социальная деградация</strong> — потеря работы, конфликты в семье, социальная изоляция.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Статистика:</strong> По данным Минздрава РФ, более 5 миллионов россиян страдают от алкогольной зависимости. 87% из них обращаются за помощью на поздних стадиях заболевания.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGES -->
+        <section class="stages">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Стадии запоя</h2>
+                    <p>Запойное состояние развивается постепенно</p>
+                </div>
+                <div class="stages-container">
+                    <div class="stage-item">
+                        <div class="stage-number">1</div>
+                        <div class="stage-content">
+                            <h3>Первая стадия (1-3 дня)</h3>
+                            <p>Начальная стадия запоя. Человек употребляет алкоголь ежедневно, но ещё может контролировать количество. Появляются первые признаки абстиненции при попытке прекратить.</p>
+                        </div>
+                    </div>
+                    <div class="stage-item">
+                        <div class="stage-number">2</div>
+                        <div class="stage-content">
+                            <h3>Вторая стадия (3-7 дней)</h3>
+                            <p>Потеря контроля над количеством выпитого. Абстинентный синдром становится выраженным. Появляются тремор, потливость, нарушения сна.</p>
+                        </div>
+                    </div>
+                    <div class="stage-item">
+                        <div class="stage-number">3</div>
+                        <div class="stage-content">
+                            <h3>Третья стадия (7+ дней)</h3>
+                            <p>Тяжёлая стадия запоя. Полный отказ от контроля. Высокий риск развития белой горячки, судорог, серьёзных осложнений внутренних органов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYMPTOMS -->
+        <section class="symptoms">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Симптомы запоя</h2>
+                    <p>Распознайте опасное состояние по симптомам</p>
+                </div>
+                <div class="symptoms-grid">
+                    <div class="symptom-card">
+                        <h4>🫀 Сердечно-сосудистые</h4>
+                        <p>Тахикардия, повышенное давление, боли в груди, аритмия, нарушение сердечного ритма</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>🤢 Желудочно-кишечные</h4>
+                        <p>Тошнота, рвота, диарея, боли в животе, отсутствие аппетита, нарушение пищеварения</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>🧠 Неврологические</h4>
+                        <p>Тремор рук, головная боль, головокружение, нарушение координации, судороги</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>😰 Психологические</h4>
+                        <p>Тревожность, депрессия, панические атаки, бессонница, суицидальные мысли</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>🌡️ Вегетативные</h4>
+                        <p>Потливость, озноб, повышенная температура, покраснение или бледность кожи</p>
+                    </div>
+                    <div class="symptom-card">
+                        <h4>👁️ Тяжёлые симптомы</h4>
+                        <p>Галлюцинации, бред, спутанность сознания, белая горячка, потеря сознания</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT BLOCK 2 -->
+        <section class="content-section">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Когда нужна профессиональная помощь</h2>
+                    
+                    <h3>Когда нужно вызывать нарколога</h3>
+                    <p>Профессиональная помощь нарколога необходима в следующих случаях:</p>
+                    <ul>
+                        <li>Запой длится более 3 дней;</li>
+                        <li>Наблюдается выраженный тремор рук и тела;</li>
+                        <li>Пульс выше 100 ударов в минуту;</li>
+                        <li>Повышенное артериальное давление;</li>
+                        <li>Непрекращающаяся рвота;</li>
+                        <li>Судороги или мышечные спазмы;</li>
+                        <li>Галлюцинации или бред;</li>
+                        <li>Потеря сознания.</li>
+                    </ul>
+
+                    <div class="warning">
+                        <strong>Важно:</strong> При наличии хотя бы 3 из перечисленных симптомов необходима срочная профессиональная помощь. Не пытайтесь справиться самостоятельно — это может быть опасно для жизни.
+                    </div>
+
+                    <h3>Почему нельзя лечить запой самостоятельно</h3>
+                    <p>Самостоятельное лечение запоя опасно по нескольким причинам:</p>
+                    <ul>
+                        <li><strong>Риск белой горячки</strong> — психоз может развиться на 2-4 день после прекращения употребления;</li>
+                        <li><strong>Судорожные припадки</strong> — похожи на эпилептические, могут быть смертельны;</li>
+                        <li><strong>Сердечные осложнения</strong> — аритмия, инфаркт, инсульт;</li>
+                        <li><strong>Обезвоживание</strong> — нарушение водно-электролитного баланса;</li>
+                        <li><strong>Печеночная недостаточность</strong> — печень не справляется с токсинами.</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <strong>Важно:</strong> Профессиональная медицинская помощь снижает риск осложнений до 1%. Наши врачи проводят процедуру на дому с полным оборудованием.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>🚨 Нужна помощь при запое?</h2>
+                <p>Не рискуйте жизнью — звоните прямо сейчас!</p>
+                <div class="cta-buttons">
+                    <a href="tel:88004448989" class="btn btn-white" style="background: white; color: var(--primary);"><span>📞</span> 8 800 444-89-89</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Круглосуточно. Анонимно. Профессионально.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>🌍 Москва, Московская и Ярославская область</li>
+                        <li>📞 <a href="tel:88004448989">8 800 444-89-89</a></li>
+                        <li>📧 info@tyspas.ru</li>
+                        <li>🕒 Круглосуточно 24/7</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="/uslugi/vyvod-iz-zapoya.html">Вывод из запоя</a></li>
+                        <li><a href="/uslugi/kodirovanie.html">Кодирование</a></li>
+                        <li><a href="/uslugi/reabilitatsiya.html">Реабилитация</a></li>
+                        <li><a href="/uslugi/statsionar.html">Стационар</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Города</h4>
+                    <ul>
+                        <li><a href="/goroda/moskva/balashiha.html">Балашиха</a></li>
+                        <li><a href="/goroda/moskva/khimki.html">Химки</a></li>
+                        <li><a href="/goroda/yaroslavl/yaroslavl.html">Ярославль</a></li>
+                        <li><a href="/goroda/yaroslavl/rybinsk.html">Рыбинск</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Документы</h4>
+                    <ul>
+                        <li><a href="/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/offer.html">Публичная оферта</a></li>
+                        <li><a href="/soglasie.html">Согласие на обработку данных</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ТыСпас. Все права защищены.</p>
+                <div class="footer-license">
+                    Сервис помощи зависимым «ТыСпас» работает с лицензированными медицинскими учреждениями.
+                    <br>
+                    <strong>Имеются противопоказания, необходима консультация специалиста.</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
